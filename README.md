@@ -6,11 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-<<<<<<< HEAD
 Hi my name is Justin. It's nice to meet you all!
-=======
-* Hi my name is Jin Rong.  I am looking foward to seeing the survey results and working on the real application!
->>>>>>> 24671f6 (Added one line intro to README file for JinRong)
+Hi my name is Jin Rong.  I am looking foward to working together on the project with you guys!
 	
 ## Technologies
 Technologies used for this project:
