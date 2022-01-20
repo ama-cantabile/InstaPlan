@@ -6,8 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-Hi my name is Justin. It's nice to meet you all!
-Hi my name is Jin Rong.  I am looking foward to working together on the project with you guys!
+* Hi my name is Justin. It's nice to meet you all!
+* Hi my name is Jin Rong.  I am looking foward to working together on the project with you guys!
 	
 ## Technologies
 Technologies used for this project:
