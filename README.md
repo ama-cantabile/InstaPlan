@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Justin. It's nice to meet you all!
+* Hi my name is Justin. It's nice to meet you all. I can't wait to start working on the project!
 * Hi my name is Jin Rong.  I am looking foward to working together with you guys!
 * Hi my name is Amadeus. I'm excited about this project beacuse I want to have more team programming experience.
 	
