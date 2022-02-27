@@ -23,23 +23,40 @@
     <!-- our own navbar goes here -->
     <div id="navbar-container"></div>
 
-    <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./images/Vancouver.jpg" alt="" width="600" height="400">
-        <h1 class="display-5 fw-bold">Welcome to our Smart Travel Plan Creator!</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Our team BBY26 is developing a web application to help busy 2030 Vancouver Winter
-                Olympics
-                tourists to enjoy Vancouver’s famous attractions and delicious foods near Olympic sites effortlessly
-                with our
-                smart travel plan creator.
-            </p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href ="travelPlanCreator1.html" type="button" class="btn btn-success btn-lg px-4 gap-3">Create Your Trip</a><br />
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Game Schedule</button><br />
-                <a href="attractionList.html" role="button" class="btn btn-outline-secondary btn-lg px-4" >Attractions</a><br />
-                <a href="restaurantList.html" role="button" class="btn btn-outline-secondary btn-lg px-4">Restaurants</a><br />
-            </div>
+    <h1 style="text-align: center; margin: 5%;">Please Fill in Some Information</h1><br />
+
+    <div class="d-flex w-100 justify-content-center">
+        <div class="d-flex flex-column w-25">
+            <h3 style=" text-align: center;">Preferred Cuisine</h3>
+            <select class="form-select w-100 mt-2 mb-5" aria-label="Default select example">
+                <option selected>Select cuisine</option>
+                <option value="1">Chinese</option>
+                <option value="2">Italian</option>
+                <option value="3">Japanese</option>
+                <option value="4">Korean</option>
+                <option value="5">Vietnamese</option>
+            </select>
         </div>
+
+    </div>
+
+    <div class="d-flex w-100 justify-content-center">
+        <div class="d-flex flex-column w-25">
+            <h3 style=" text-align: center;">Budget</h3>
+            <select class="form-select w-100 mt-2 mb-5" aria-label="Default select example">
+                <option selected>Select your budget range</option>
+                <option value="1">$0 - $50</option>
+                <option value="2">$51 - $100</option>
+                <option value="3">$101 - $150</option>
+                <option value="4">$151 - $200</option>
+                <option value="5">$201+</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="d-flex w-100 justify-content-center px-3 pt-5 pb-5 mb-2">
+        <a href="travelPlan.html" type="button" class="btn btn-success btn-lg px-5 gap-3">Create Travel Plan</a><br />
     </div>
 
     <!-- our own footer goes here-->
