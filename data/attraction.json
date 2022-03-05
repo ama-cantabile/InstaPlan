@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "name": "Averil",
+        "address": "77165 Sachtjen Avenue",
+        "phone": "235-306-2657",
+        "information": "sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Clint",
+        "address": "0 Sheridan Pass",
+        "phone": "112-364-9249",
+        "information": "sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Saunders",
+        "address": "005 Randy Circle",
+        "phone": "644-400-8738",
+        "information": "aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Lucretia",
+        "address": "07 Dottie Park",
+        "phone": "250-637-1088",
+        "information": "luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Charity",
+        "address": "6 Birchwood Plaza",
+        "phone": "322-960-0510",
+        "information": "diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Matty",
+        "address": "4562 Burning Wood Way",
+        "phone": "580-842-8173",
+        "information": "vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Mack",
+        "address": "14052 Lindbergh Avenue",
+        "phone": "830-659-6473",
+        "information": "sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Kennan",
+        "address": "0 Melby Circle",
+        "phone": "865-566-9130",
+        "information": "vehicula condimentum curabitur in libero ut massa volutpat convallis morbi",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Davita",
+        "address": "2371 Muir Lane",
+        "phone": "773-184-6513",
+        "information": "nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Andras",
+        "address": "71605 Johnson Trail",
+        "phone": "554-324-2820",
+        "information": "curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Drake",
+        "address": "264 Armistice Road",
+        "phone": "473-136-9501",
+        "information": "potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Rebbecca",
+        "address": "0160 Dapin Place",
+        "phone": "746-101-1021",
+        "information": "non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Carny",
+        "address": "208 Shopko Pass",
+        "phone": "424-598-0939",
+        "information": "enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Bernita",
+        "address": "5 Sheridan Trail",
+        "phone": "653-190-5553",
+        "information": "luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Rafaela",
+        "address": "86 Meadow Vale Center",
+        "phone": "870-754-8782",
+        "information": "a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Burke",
+        "address": "8798 Lukken Drive",
+        "phone": "160-345-1238",
+        "information": "posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Tasia",
+        "address": "857 Badeau Junction",
+        "phone": "747-695-9621",
+        "information": "enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Kaycee",
+        "address": "7766 Gulseth Place",
+        "phone": "641-591-5123",
+        "information": "magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Osbourn",
+        "address": "1200 Dryden Alley",
+        "phone": "702-750-8535",
+        "information": "hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Yehudi",
+        "address": "3615 Kim Avenue",
+        "phone": "797-359-7526",
+        "information": "tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 21,
+        "name": "Malorie",
+        "address": "578 Northport Way",
+        "phone": "396-510-4414",
+        "information": "suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Maynord",
+        "address": "9 Kenwood Street",
+        "phone": "811-710-3116",
+        "information": "fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 23,
+        "name": "Modesta",
+        "address": "1119 Ridge Oak Parkway",
+        "phone": "452-742-0137",
+        "information": "mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 24,
+        "name": "Reginauld",
+        "address": "2802 Eagle Crest Alley",
+        "phone": "719-182-4265",
+        "information": "vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id",
+        "image": "./images/grouseMtn.jpg"
+    },
+    {
+        "id": 25,
+        "name": "Elisha",
+        "address": "1 Grover Place",
+        "phone": "757-907-2585",
+        "information": "diam id ornare imperdiet sapien urna pretium nisl ut volutpat",
+        "image": "./images/grouseMtn.jpg"
+    }
+]

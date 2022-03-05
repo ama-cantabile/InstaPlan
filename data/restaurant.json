@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "name": "Ondricka and Sons",
+        "address": "0 Stephen Terrace",
+        "phone": "127-449-8814",
+        "information": "turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Strosin Inc",
+        "address": "11 Oak Court",
+        "phone": "355-863-4260",
+        "information": "suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Rath-Metz",
+        "address": "05 Swallow Trail",
+        "phone": "863-864-5722",
+        "information": "odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Hodkiewicz LLC",
+        "address": "88153 Macpherson Road",
+        "phone": "659-918-8547",
+        "information": "tristique est et tempus semper est quam pharetra magna ac",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Ritchie, White and Gusikowski",
+        "address": "43 Sommers Terrace",
+        "phone": "652-710-2793",
+        "information": "tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Von, Harvey and Ortiz",
+        "address": "8 Emmet Circle",
+        "phone": "725-529-5605",
+        "information": "et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Boyle, Anderson and Wisozk",
+        "address": "6982 Iowa Road",
+        "phone": "621-954-2606",
+        "information": "sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Thiel-Ruecker",
+        "address": "7833 Delaware Trail",
+        "phone": "594-479-2966",
+        "information": "vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Christiansen Inc",
+        "address": "46193 Brickson Park Point",
+        "phone": "103-351-7411",
+        "information": "id mauris vulputate elementum nullam varius nulla facilisi cras non",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Grimes-Wisoky",
+        "address": "178 Muir Court",
+        "phone": "994-557-3086",
+        "information": "consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Kilback-Zboncak",
+        "address": "0 Surrey Road",
+        "phone": "384-983-2764",
+        "information": "adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Daniel-Barton",
+        "address": "65513 Weeping Birch Center",
+        "phone": "364-243-5718",
+        "information": "ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Smitham and Sons",
+        "address": "02 Blaine Junction",
+        "phone": "598-505-8901",
+        "information": "in imperdiet et commodo vulputate justo in blandit ultrices enim lorem",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Will Inc",
+        "address": "4 Hermina Crossing",
+        "phone": "102-939-5768",
+        "information": "sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Kerluke Inc",
+        "address": "469 Gale Center",
+        "phone": "457-921-2715",
+        "information": "dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Graham-Botsford",
+        "address": "641 John Wall Way",
+        "phone": "566-482-4402",
+        "information": "at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Nitzsche Group",
+        "address": "77719 Carberry Trail",
+        "phone": "553-519-2622",
+        "information": "nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Gerlach-Jones",
+        "address": "8 Blue Bill Park Parkway",
+        "phone": "161-265-7252",
+        "information": "nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Bartoletti LLC",
+        "address": "59 Grasskamp Court",
+        "phone": "866-684-7302",
+        "information": "purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 20,
+        "name": "King LLC",
+        "address": "77076 Village Green Point",
+        "phone": "904-155-6816",
+        "information": "mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 21,
+        "name": "Kub-Lakin",
+        "address": "29885 Prairieview Junction",
+        "phone": "426-106-1139",
+        "information": "montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Toy, Hahn and Hettinger",
+        "address": "2 Dorton Parkway",
+        "phone": "591-511-1001",
+        "information": "et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 23,
+        "name": "McCullough, Rice and Kunde",
+        "address": "126 Blaine Point",
+        "phone": "642-216-2585",
+        "information": "justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 24,
+        "name": "Purdy Group",
+        "address": "403 Mesta Point",
+        "phone": "312-451-7445",
+        "information": "maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in",
+        "image": "./images/restaurant.jpg"
+    },
+    {
+        "id": 25,
+        "name": "Murazik, Doyle and Ullrich",
+        "address": "6288 Burning Wood Junction",
+        "phone": "631-453-8235",
+        "information": "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est",
+        "image": "./images/restaurant.jpg"
+    }
+]
