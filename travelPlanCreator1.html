@@ -69,105 +69,23 @@
     </div>
 
     <h3 style="text-align: center; margin-top:5%">Fillers</h3>
-    <div class="list-group p-3 mb-2 bg-light text-dark">
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="coffee_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="coffee_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="coffee_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="coffee_location"></span></small>
-                <small>Address: <span id="coffee_address"></span></small>
-                <img id="coffee_img" src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="garden_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="garden_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="garden_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="garden_location"></span></small>
-                <small>Address: <span id="garden_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="skating_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="skating_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="skating_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="skating_location"></span></small>
-                <small>Address: <span id="skating_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="diner_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="diner_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="diner_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="diner_location"></span></small>
-                <small>Address: <span id="diner_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="shopping_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="shopping_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="shopping_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="shopping_location"></span></small>
-                <small>Address: <span id="shopping_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="movie_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="movie_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="movie_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="movie_location"></span></small>
-                <small>Address: <span id="movie_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="laser_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="laser_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="laser_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="laser_location"></span></small>
-                <small>Address: <span id="laser_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 id="sushi_details" class="mb-1"></h5><br />
-                    <p>Start time: <span id="sushi_start" class="mb-1"></span></p><br />
-                    <p>End time: <span id="sushi_end" class="mb-1"></span></p>
-                </div>
-                <small>Location: <span id="sushi_location"></span></small>
-                <small>Address: <span id="sushi_address"></span></small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </a>
-    </div>
+    <div id="fillerGroup" class="list-group p-3 mb-2 bg-light text-dark">
 
+        <template id="fillerTemplate">
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="button">
+                <div class="d-flex w-100 justify-content-between">
+                    <div class="d-flex flex-column bd-highlight mb-3">
+                        <h5 id="details" class="mb-1"></h5><br />
+                        <p>Start time (Military time): <span id="start" class="mb-1"></span></p><br />
+                        <p>End time (Military time): <span id="end" class="mb-1"></span></p>
+                    </div>
+                    <small>Location: <span id="location"></span></small>
+                    <small>Address: <span id="address"></span></small>
+                    <img id="img" style="width: 20%; height:150px;">
+                </div>
+            </a>
+        </template>
+    </div>
 
     <div class="d-flex w-100 justify-content-end px-5 pt-3 pb-5 mb-2">
         <a href="travelPlanCreator2.html" type="button" class="btn btn-success btn-lg px-5 gap-3">Next</a><br />
@@ -181,11 +99,11 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-<script src="./scripts/firebaseAPI_TEAM26.js"></script>
-<script type="text/JavaScript" src="scripts/skeleton.js"></script>
-<script type="text/JavaScript" src="scripts/travelPlanCreator1.js"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <script src="./scripts/firebaseAPI_TEAM26.js"></script>
+    <script type="text/JavaScript" src="scripts/skeleton.js"></script>
+    <script type="text/JavaScript" src="scripts/travelPlanCreator1.js"></script>
 </body>
 
 </html>
