@@ -22,8 +22,12 @@ function insertName() {
                     //method #1:  insert with html only
                     //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
                     //method #2:  insert using jquery
-                    $("#name-goes-here").text(user_Name);                         //using jquery
-                    $("#email-goes-here").text(user_Email);
+                    // $("#name-goes-here").value(user_Name);                         //using jquery
+                    // $("#email-goes-here").text(user_Email);
+
+                    document.getElementById("name-goes-here").value = user_Name;
+                    document.getElementById("email-goes-here").value = user_Email;
+
                 })
         } else {
             // No user is signed in.
