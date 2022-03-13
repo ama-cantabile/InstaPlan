@@ -17,6 +17,7 @@ function writeRestaurantData() {
                     size = snap.size;
                     if (size == 0) {
                         db.collection("restaurants").add({
+                            id: doc.id,
                             name: doc.name,
                             address: doc.address,
                             phone: doc.phone,
@@ -55,7 +56,7 @@ function displayRestaurantLists() {
         .then((querySnapshot) => {
             let restaurantDataHTML = "";
             querySnapshot.forEach((doc) => {
-                restaurantDataHTML += '<a href="restaurantDetail.html" class="list-group-item list-group-item-action" aria-current="true"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'
+                restaurantDataHTML += '<a href="restaurantDetail.html" class="list-group-item list-group-item-action" aria-current="true" onclick = "setRestaurantData(' + doc.data().id + ')"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'
                     + doc.data().name + '</h5><img src= "' + doc.data().image + '" style="width: 40%; height:150px;"></div><p class="mb-1">'
                     + doc.data().address + '</p><small>' + doc.data().phone + '</small></a>'
             });
@@ -70,3 +71,7 @@ function displayRestaurantLists() {
 }
 
 displayRestaurantLists();
+
+function setRestaurantData(id) {
+    localStorage.setItem('restaurantID', id);
+}

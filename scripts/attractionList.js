@@ -17,6 +17,7 @@ function writeAttractionData() {
                     size = snap.size;
                     if (size == 0) {
                         db.collection("attractions").add({
+                            id: doc.id,
                             name: doc.name,
                             address: doc.address,
                             phone: doc.phone,
@@ -55,7 +56,7 @@ function displayRestaurantLists() {
         .then((querySnapshot) => {
             let attractionDataHTML = "";
             querySnapshot.forEach((doc) => {
-                attractionDataHTML += '<a href="attractionDetail.html" class="list-group-item list-group-item-action" aria-current="true"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'
+                attractionDataHTML += '<a href="attractionDetail.html" class="list-group-item list-group-item-action" aria-current="true" onclick = "setAttractionData(' + doc.data().id + ')" ><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'
                     + doc.data().name + '</h5><img src= "' + doc.data().image + '" style="width: 40%; height:150px;"></div><p class="mb-1">'
                     + doc.data().address + '</p><small>' + doc.data().phone + '</small></a>'
             });
@@ -70,6 +71,10 @@ function displayRestaurantLists() {
 }
 
 displayRestaurantLists();
+
+function setAttractionData(id) {
+    localStorage.setItem('attractionID', id);
+}
 
 // function readAttraction() {
 

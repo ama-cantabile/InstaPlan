@@ -1,12 +1,19 @@
+var attractionID = localStorage.getItem("attractionID");
+
 function readAttraction() {
 
-    db.collection("attractions").doc("1cpL9GncYHGhtBIpX8j5").onSnapshot(attractionData => {
-        document.getElementById("header-title").innerHTML = attractionData.data().name;
-        document.getElementById("header-text").innerHTML = attractionData.data().information;
-        document.getElementById("phone").innerHTML = attractionData.data().phone;
-        document.getElementById("address").innerHTML = attractionData.data().address;
-        document.getElementById("header-image").src = attractionData.data().image;
+    db.collection("attractions").where("id", "==", attractionID)
+        .get()
+        .then(attractionData => {
+            attractions = attractionData.docs;
+            var thisAttraction = attractions[0].data();
 
-    });
+            document.getElementById("header-title").innerHTML = thisAttraction.name;
+            document.getElementById("header-text").innerHTML = thisAttraction.information;
+            document.getElementById("phone").innerHTML = thisAttraction.phone;
+            document.getElementById("address").innerHTML = thisAttraction.address;
+            document.getElementById("header-image").src = thisAttraction.image;
+
+        });
 }
 readAttraction();
