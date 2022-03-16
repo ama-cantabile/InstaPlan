@@ -19,11 +19,6 @@
         newcard.querySelector('a').onclick = () => setSportData(sportId);
         newcard.querySelector('.gameImage').src = "./images/" + image + ".jpg"; 
 
-        //give unique ids to all elements for future use
-        // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-        // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-        // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
         document.getElementById(collection + "GoHere").appendChild(newcard);
       })
     })

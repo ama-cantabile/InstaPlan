@@ -41,6 +41,7 @@ function readGameDetailsData() {
         gameDetails.push(doc.data());
       })
       AddAllGameDetailsToTableBody(gameDetails);
+      console.log(gameDetails);
     })
 }
 
