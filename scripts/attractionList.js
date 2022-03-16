@@ -50,7 +50,7 @@ writeAttractionData();
 /* This function retreieve the data from firebase and iterates the each attributes of the data. 
  * The each iteration creates own html and pass the html to the attractionList.html page.   
 */
-function displayRestaurantLists() {
+function populateAttractionList() {
     db.collection("attractions")
         .get()
         .then((querySnapshot) => {
@@ -70,7 +70,7 @@ function displayRestaurantLists() {
         });
 }
 
-displayRestaurantLists();
+populateAttractionList();
 
 function setAttractionData(id) {
     localStorage.setItem('attractionID', id);
