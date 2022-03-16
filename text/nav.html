@@ -17,6 +17,9 @@
                     <a class="nav-link" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="travelPlanCreator1.html"><b>Create Travel Plan</b></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="sportList.html">Olympic Games</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -27,6 +30,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="attractionList.html">Attractions</a></li>
                         <li><a class="dropdown-item" href="restaurantList.html">Restaurants</a></li>
+                        <li><a class="dropdown-item" href="fillers.html">Fillers</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -34,9 +38,11 @@
                 </li>
             </ul>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" id="searchText" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="button" onclick= "searchPage()">Search</button>
             </form>
         </div>
     </div>
 </nav>
+
+<script type="text/JavaScript" src="scripts/nav.js"></script>
