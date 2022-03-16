@@ -19,7 +19,7 @@ function insertName() {
                     var user_address = userDoc.data().address;
                     var user_city = userDoc.data().city;
                     var user_province = userDoc.data().province;
-                    var user_postalCode = userDoc.data().province;
+                    var user_postalCode = userDoc.data().postalCode;
                     //var user_Email = userDoc.data().email;
                     
                     //method #1:  insert with html only
