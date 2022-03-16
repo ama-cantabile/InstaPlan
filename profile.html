@@ -21,7 +21,9 @@
 </head>
 
 <body style="margin-right: 3%; margin-left: 3%;">
-    <h1>Profile Page</h1>
+            <!-- our own navbar goes here -->
+            <div id="navbar-container" style="margin-right: -3%; margin-left: -3%;"></div><br /><br />
+    <h1 style="text-align: center">Profile Page</h1>
     <form class="row g-3" style="margin-top: 1%;">
         <div class="col-md-6" style="margin-top: 3%;">
             <div class="col">
@@ -52,7 +54,7 @@
                 <option>Ontario</option>
                 <option>Prince Edward Island</option>
                 <option>Quebec</option>
-                <option>QSaskatchewan</option>
+                <option>Saskatchewan</option>
                 <option>Yukon</option>
             </select>
         </div>
@@ -62,9 +64,13 @@
         </div>
  
         <div class="col-12">
-            <button type="button" class="btn btn-primary" onclick="saveUserInfo()">Save</button>
+            <button type="button" id="save" class="btn btn-primary" onclick="saveUserInfo()">Save</button>
         </div>
     </form>
+
+
+    <!-- our own footer goes here-->
+    <div id="footer-container"></div>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

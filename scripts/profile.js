@@ -70,3 +70,9 @@ function saveUserInfo() {
         }
     })
 }
+
+document.getElementById("save").addEventListener("click", confirm);
+
+function confirm() {
+    alert("Saved!");
+}
