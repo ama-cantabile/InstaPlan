@@ -29,6 +29,10 @@ function insertName() {
                     // $("#email-goes-here").text(user_Email);
 
                     document.getElementById("inputName").value = user_Name;
+                    document.getElementById("inputAddress").value = user_address;
+                    document.getElementById("inputCity").value = user_city;
+                    document.getElementById("inputProvince").value = user_province;
+                    document.getElementById("inputPostalCode").value = user_postalCode;
 
                 })
         } else {
