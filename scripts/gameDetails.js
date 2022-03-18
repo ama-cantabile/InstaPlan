@@ -49,7 +49,7 @@ function readGameDetailsData() {
 var gameDetailTableBody = document.getElementById("gameTableBody");
 
 // Create game detail table body element and data parameters
-function addGameDetailsToTableBody(date, start, end, location, event) {
+function addGameDetailsToTableBody(date, start, end, location, event, calendar) {
   var row = document.createElement("tr");
   var col1 = document.createElement("td");
   var col2 = document.createElement("td");
@@ -63,7 +63,9 @@ function addGameDetailsToTableBody(date, start, end, location, event) {
   col3.innerHTML = end;
   col4.innerHTML = location;
   col5.innerHTML = event;
-  col6.innerHTML = '<a class="btn btn-primary" href="#" role="button">Add to Calendar</a>';
+  
+  // add google calendar event anchor tag element
+  col6.innerHTML = '<a target="_blank" class="btn btn-primary" href="'+ calendar +'" role="button">Add Reminder</a>';
 
   row.appendChild(col1);
   row.appendChild(col2);
@@ -78,7 +80,7 @@ function addGameDetailsToTableBody(date, start, end, location, event) {
 function AddAllGameDetailsToTableBody (gameDetailsDocsList) {
   gameDetailTableBody.innerHTML="";
   gameDetailsDocsList.forEach(element => {
-    addGameDetailsToTableBody(element.date, element.startTime, element.endTime, element.location, element.event);
+    addGameDetailsToTableBody(element.date, element.startTime, element.endTime, element.location, element.event, element.calendar);
   })
 }
 
