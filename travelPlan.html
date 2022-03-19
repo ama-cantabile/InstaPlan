@@ -27,40 +27,24 @@
 
     <h1 style="text-align: center; margin-top: 5%;">Here is Your Plan!</h1><br />
     <h3 style="text-align: center; margin: 3%;">Plan for: Month/Day/Year </h3>
-    <div id="schedule-list-container" class="list-group p-3 mb-2 bg-light text-dark">
-        <ul class="list-group-item">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 class="mb-1">Event/Location #1</h5><br />
-                    <h6 class="mb-4">Time</h6>
-                    <p class="mb-1">Address</p>
-                </div>
-                <small>3 days ago</small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
+    <div id="planGroup" class="list-group p-3 mb-2 bg-light text-dark">
+
+        <template id="planTemplate">
+            <div class="list-group p-3 mb-2 bg-light text-dark">
+                <ul class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="d-flex flex-column bd-highlight mb-3">
+                            <h5 id="details" class="mb-1"></h5><br />
+                            <p>Start time: <span id="start" class="mb-1"></span></p><br />
+                            <p>End time: <span id="end" class="mb-1"></span></p>
+                        </div>
+                        <small>Location: <span id="location"></span></small>
+                        <small>Address: <span id="address"></span></small>
+                        <img id="img" style="width: 20%; height:150px;">
+                    </div>
+                </ul>
             </div>
-        </ul>
-        <ul class="list-group-item">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 class="mb-1">Event/Location #2</h5><br />
-                    <h6 class="mb-4">Time</h6>
-                    <p class="mb-1">Address</p>
-                </div>
-                <small>3 days ago</small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </ul>
-        <ul class="list-group-item">
-            <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex flex-column bd-highlight mb-3">
-                    <h5 class="mb-1">Event/Location #3</h5><br />
-                    <h6 class="mb-4">Time</h6>
-                    <p class="mb-1">Address</p>
-                </div>
-                <small>3 days ago</small>
-                <img src="./images/Vancouver.jpg" style="width: 20%; height:150px;">
-            </div>
-        </ul>
+        </template>
     </div>
 
     <div class="d-flex w-100 justify-content-center px-3 pt-5">

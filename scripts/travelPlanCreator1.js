@@ -146,10 +146,10 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid);
-            var userId = user.uid;etrf
+            var userId = user.uid;
             console.log(user.uid);
 
-            currentUser.collection("savedPlan").doc({
+            currentUser.collection("savedPlan").add({
                 sportId: sportId,
                 gameId: gameDocumentId,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -159,33 +159,6 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
         }
     })
 }
-
-function populateCardsDynamically() {
-    let fillerTemplate = document.getElementById("fillerTemplate");
-    let fillerGroup = document.getElementById("fillerGroup");
-
-    db.collection("fillers").get()
-        .then(allFillers => {
-            allFillers.forEach(doc => {
-                var fillerDetail = doc.data().Details;
-                var fillerStart = doc.data().Start;
-                var fillerEnd = doc.data().End;
-                var fillerLocation = doc.data().Location;
-                var fillerAddress = doc.data().Address;
-                var fillerImage = doc.data().Image;
-                let fillerCard = fillerTemplate.content.cloneNode(true);
-                fillerCard.querySelector('#details').innerHTML = fillerDetail;
-                fillerCard.querySelector('#start').innerHTML = fillerStart;
-                fillerCard.querySelector('#end').innerHTML = fillerEnd;
-                fillerCard.querySelector('#location').innerHTML = fillerLocation;
-                fillerCard.querySelector('#address').innerHTML = fillerAddress;
-                fillerCard.querySelector('#img').src = `./images/${fillerImage}.jpg`;
-                fillerGroup.appendChild(fillerCard);
-            })
-
-        })
-}
-populateCardsDynamically();
 
 function planConfirm() {
     if(confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {

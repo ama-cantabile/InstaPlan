@@ -2,7 +2,7 @@ function populateCardsDynamically() {
     let fillerTemplate = document.getElementById("fillerTemplate");
     let fillerGroup = document.getElementById("fillerGroup");
     
-    db.collection("fillers").get()
+    db.collection("fillers").orderBy('Start').get()
         .then(allFillers => {
             allFillers.forEach(doc => {
                 var fillerDetail = doc.data().Details;
