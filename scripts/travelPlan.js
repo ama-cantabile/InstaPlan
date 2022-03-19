@@ -47,3 +47,30 @@ function populateSchedule() {
 
 //call the function to run it 
 populateSchedule();
+
+function populateCardsDynamically() {
+    let fillerTemplate = document.getElementById("planTemplate");
+    let fillerGroup = document.getElementById("planGroup");
+    
+    db.collection("fillers").orderBy('Start').get()
+        .then(allFillers => {
+            allFillers.forEach(doc => {
+                var fillerDetail = doc.data().Details;
+                var fillerStart = doc.data().Start;
+                var fillerEnd = doc.data().End;
+                var fillerLocation = doc.data().Location;
+                var fillerAddress = doc.data().Address;
+                var fillerImage = doc.data().Image;
+                let fillerCard = fillerTemplate.content.cloneNode(true);
+                fillerCard.querySelector('#details').innerHTML = fillerDetail;
+                fillerCard.querySelector('#start').innerHTML = fillerStart;
+                fillerCard.querySelector('#end').innerHTML = fillerEnd;
+                fillerCard.querySelector('#location').innerHTML = fillerLocation;
+                fillerCard.querySelector('#address').innerHTML = fillerAddress;
+                fillerCard.querySelector('#img').src = `./images/${fillerImage}.jpg`;
+                fillerGroup.appendChild(fillerCard);
+            })
+
+        })
+}
+populateCardsDynamically();
