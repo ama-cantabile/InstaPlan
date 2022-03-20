@@ -100,16 +100,22 @@ function readGameDetailsCollections(sportId) {
                 console.log(targetId);
                 console.log(e);
                 // writeGameEvent(sportId, targetId);
-                writeGameEventToSubcollection(sportId, targetId);
+                // writeGameEventToSubcollection(sportId, targetId);
                 console.log(1);
 
+                var element = document.getElementById(targetId);
+
+
+                if (!element.classList.contains("highlight")) {
+                    writeGameEventToSubcollection(sportId, targetId);
+
+                } else {
+                    deleteGameEventFromSubcollection(targetId);
+                }
+                
+                element.classList.toggle("highlight");
+
             })
-            $(document).ready(function(){
-                $("a.btn.btn-outline-primary").click(function(){
-                    $(this).addClass("highlight");
-                    // $(this).toggleClass("btn-lg");
-                });
-            });
         })
 }
 
@@ -141,13 +147,9 @@ function writeGameEvent(sportId, gameDocumentId) {
 function writeGameEventToSubcollection(sportId, gameDocumentId) {
 
     // Add sport collection and game event document as reference data type
-    // var gameEventData =db.doc("/" + sportId + "/" + gameDocumentId);
-    // console.log(gameEventData);
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid);
-            var userId = user.uid;
-            console.log(user.uid);
 
             currentUser.collection("savedPlan").add({
                 sportId: sportId,
@@ -156,9 +158,37 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
 
             })
 
+            currentUser.collection("savedPlan").get()
+                .then(allSport => {
+                    allSport.forEach(doc => {
+                    currentUser.collection("savedPlan").doc(doc.id).set({
+                        docId: doc.id
+                    }, {merge: true})
+                })    
+            })
         }
     })
 }
+
+
+function deleteGameEventFromSubcollection(gameDocumentId) {
+
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid);
+
+            currentUser.collection("savedPlan").where('gameId', '==', gameDocumentId).get()
+                .then(allSport => {
+                    allSport.forEach(doc => {
+                        var docToDelete = doc.data().docId;
+                        currentUser.collection("savedPlan").doc(docToDelete).delete();
+
+                    })
+                }) 
+        }
+    })
+}
+
 
 function planConfirm() {
     if(confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {
