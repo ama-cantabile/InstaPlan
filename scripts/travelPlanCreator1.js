@@ -99,12 +99,8 @@ function readGameDetailsCollections(sportId) {
                 targetId = e.target.id;
                 console.log(targetId);
                 console.log(e);
-                // writeGameEvent(sportId, targetId);
-                // writeGameEventToSubcollection(sportId, targetId);
-                console.log(1);
 
                 var element = document.getElementById(targetId);
-
 
                 if (!element.classList.contains("highlight")) {
                     writeGameEventToSubcollection(sportId, targetId);
@@ -148,24 +144,32 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
 
     // Add sport collection and game event document as reference data type
     firebase.auth().onAuthStateChanged(user => {
-        if (user) {
+        if (user) { 
             var currentUser = db.collection("users").doc(user.uid);
-
-            currentUser.collection("savedPlan").add({
-                sportId: sportId,
+            var scheduleWrite = db.collection(sportId).doc(gameDocumentId);
+            scheduleWrite.get().then(plan => {               
+                currentUser.collection("savedPlan").add({
+                Event: plan.data().event,
+                Date: plan.data().date,
+                Location: plan.data().location,
+                Start: plan.data().startTime,
+                End: plan.data().endTime,
+                Img: plan.data().img,
                 gameId: gameDocumentId,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
 
+                // Save document id as field docId
+                currentUser.collection("savedPlan").get()
+                    .then(allSport => {
+                        allSport.forEach(doc => {
+                        currentUser.collection("savedPlan").doc(doc.id).set({
+                            docId: doc.id
+                        }, {merge: true})
+                    })    
+                })
             })
 
-            currentUser.collection("savedPlan").get()
-                .then(allSport => {
-                    allSport.forEach(doc => {
-                    currentUser.collection("savedPlan").doc(doc.id).set({
-                        docId: doc.id
-                    }, {merge: true})
-                })    
-            })
         }
     })
 }

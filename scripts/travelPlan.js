@@ -13,12 +13,40 @@ function populateSchedule() {
                     var userSchedule = userDoc.data().schedule;
                     var scheduleList = "";
 
+
+                    let planTemplate = document.getElementById("planTemplate");
+                    let planGroup = document.getElementById("planGroup");
+
+                   currentUser.collection("savedPlan").orderBy('Date').get()
+                        .then(plan => {
+                            plan.forEach(doc => {
+                                var event = doc.data().Event;
+                                var date = doc.data().Date;
+                                var start = doc.data().Start;
+                                var end = doc.data().End;
+                                var location = doc.data().Location;
+                                var img = doc.data().Img;
+
+
+                                let planCard = planTemplate.content.cloneNode(true);
+                                planCard.querySelector('#event').innerHTML = event;
+                                planCard.querySelector('#date').innerHTML = date;
+                                planCard.querySelector('#start').innerHTML = start;
+                                planCard.querySelector('#end').innerHTML = end;
+                                planCard.querySelector('#location').innerHTML = location;
+                                planCard.querySelector('#img').src = `./images/${img}.jpg`;
+                                planGroup.appendChild(planCard);
+                            })
+
+                        })
+
+
                     console.log(userSchedule);
-                    userSchedule.sort(function (a, b){
+                    userSchedule.sort(function (a, b) {
                         //console.log(a.startTime);
                         return parseInt(a.startTime) - parseInt(b.startTime);
                     })
-                    
+
 
                     for (var i = 0; i < userSchedule.length; i++) {
                         userSchedule[i].get()
@@ -32,11 +60,14 @@ function populateSchedule() {
                                 document.getElementById("schedule-list-container").innerHTML = scheduleList;
                             })
 
+
                         //if the data fields are not empty, then write them in to the form.
                         if (userName != null) {
                             //document.getElementById("nameInput").value = userName;
                         }
                     }
+
+
                 })
         } else {
             // No user is signed in.
@@ -47,30 +78,3 @@ function populateSchedule() {
 
 //call the function to run it 
 populateSchedule();
-
-function populateCardsDynamically() {
-    let fillerTemplate = document.getElementById("planTemplate");
-    let fillerGroup = document.getElementById("planGroup");
-    
-    db.collection("fillers").orderBy('Start').get()
-        .then(allFillers => {
-            allFillers.forEach(doc => {
-                var fillerDetail = doc.data().Details;
-                var fillerStart = doc.data().Start;
-                var fillerEnd = doc.data().End;
-                var fillerLocation = doc.data().Location;
-                var fillerAddress = doc.data().Address;
-                var fillerImage = doc.data().Image;
-                let fillerCard = fillerTemplate.content.cloneNode(true);
-                fillerCard.querySelector('#details').innerHTML = fillerDetail;
-                fillerCard.querySelector('#start').innerHTML = fillerStart;
-                fillerCard.querySelector('#end').innerHTML = fillerEnd;
-                fillerCard.querySelector('#location').innerHTML = fillerLocation;
-                fillerCard.querySelector('#address').innerHTML = fillerAddress;
-                fillerCard.querySelector('#img').src = `./images/${fillerImage}.jpg`;
-                fillerGroup.appendChild(fillerCard);
-            })
-
-        })
-}
-populateCardsDynamically();

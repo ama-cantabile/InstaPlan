@@ -25,8 +25,7 @@
     <!-- our own navbar goes here -->
     <div id="navbar-container"></div>
 
-    <h1 style="text-align: center; margin-top: 5%;">Here is Your Plan!</h1><br />
-    <h3 style="text-align: center; margin: 3%;">Plan for: Month/Day/Year </h3>
+    <h1 style="text-align: center; margin: 5%;">Here is Your Plan!</h1><br />
     <div id="planGroup" class="list-group p-3 mb-2 bg-light text-dark">
 
         <template id="planTemplate">
@@ -34,12 +33,13 @@
                 <ul class="list-group-item">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="d-flex flex-column bd-highlight mb-3">
-                            <h5 id="details" class="mb-1"></h5><br />
+                            <h5 id="event" class="mb-1"></h5><br />
+                            <p>Date: <span id="date" class="mb-1"></span></p><br />
                             <p>Start time: <span id="start" class="mb-1"></span></p><br />
                             <p>End time: <span id="end" class="mb-1"></span></p>
                         </div>
                         <small>Location: <span id="location"></span></small>
-                        <small>Address: <span id="address"></span></small>
+
                         <img id="img" style="width: 20%; height:150px;">
                     </div>
                 </ul>
