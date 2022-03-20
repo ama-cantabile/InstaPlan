@@ -144,17 +144,22 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
     // var gameEventData =db.doc("/" + sportId + "/" + gameDocumentId);
     // console.log(gameEventData);
     firebase.auth().onAuthStateChanged(user => {
-        if (user) {
+        if (user) { 
             var currentUser = db.collection("users").doc(user.uid);
-            var userId = user.uid;
+            var scheduleWrite = db.collection(sportId).doc(gameDocumentId);
+            scheduleWrite.onSnapshot(plan => {               
+                currentUser.collection("savedPlan").add({
+                Event: plan.data().event,
+                Date: plan.data().date,
+                Location: plan.data().location,
+                Start: plan.data().startTime,
+                End: plan.data().endTime,
+                Img: plan.data().img
+            })
+            })
             console.log(user.uid);
 
-            currentUser.collection("savedPlan").add({
-                sportId: sportId,
-                gameId: gameDocumentId,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
 
-            })
 
         }
     })
