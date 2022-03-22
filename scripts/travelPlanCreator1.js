@@ -1,10 +1,56 @@
-const sportIdList = [];
 
-function readGameGroupData(collection) {
+function readDateFilterData(collection) {
+
+    // Addd a dropdown menu to select date filter for the Olympics game events
+    let dateFilterContainer = document.getElementById("dateFilter");
+    var date = "";
+    // Define a default game event date for initial event display
+    var buttonDate = "Mar 08";
+
+    db.collection("dateFilter").orderBy("date").get().then(allDate => {
+        let dateFilterHtml = "";
+        allDate.forEach(doc => {
+
+            // Svee document id as docId field
+            db.collection("dateFilter").doc(doc.id).set({
+                docId: doc.id
+            }, {merge: true})
+            date = doc.data().date;
+            var docId = doc.data().docId;
+            console.log(docId)
+
+            dateFilterHtml += `<li><a id=` + docId + ` class="dropdown-item" href="#">` + date + `</a></li>`
+            dateFilterContainer.innerHTML = dateFilterHtml;
+
+        })
+
+        var targetId = 0;
+        document.getElementById("dateFilter").addEventListener("click", function(e) {
+            
+            targetId = e.target.id;
+            console.log(targetId);
+            db.collection("dateFilter").doc(targetId).get().then(doc => {
+                buttonDate = doc.data().date;
+                document.getElementById("dropdownMenuLink").innerHTML = buttonDate;
+
+                readGameGroupData(buttonDate);
+
+            })
+            
+        })
+    })
+}
+readDateFilterData();
+
+
+function readGameGroupData(buttonDate) {
+
+    // Create table container to listen to call to add game event table body
     let gameTemplate = document.getElementById("gameTemplate");
     let gameGroup = document.getElementById("gameGroup");
+    const sportIdList = [];
 
-    db.collection(collection).get()
+    db.collection("sportList").where('date', 'array-contains', buttonDate).get()
         .then(allDateGames => {
             let sportListHtml = "";
             allDateGames.forEach(doc => {
@@ -35,20 +81,19 @@ function readGameGroupData(collection) {
                                     </div>
                                 </div> `
 
-                // let gameCollapse = gameTemplate.content.cloneNode(true);
                 gameTemplate.innerHTML = sportListHtml;
             })
 
             for (i = 0; i < sportIdList.length; i++) {
-                readGameDetailsCollections(sportIdList[i]);
+                readGameDetailsCollections(buttonDate, sportIdList[i]);
             }
+
         })
 }
-readGameGroupData("sportList");
 
 // Read game detail collection and store document data in a string.
-function readGameDetailsCollections(sportId) {
-    db.collection(sportId).get()
+function readGameDetailsCollections(dateFilter, sportId) {
+    db.collection(sportId).where('date', '==', dateFilter).get()
         .then(allSport => {
 
             var gameDetails = [];
