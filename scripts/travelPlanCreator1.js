@@ -15,7 +15,7 @@ function readDateFilterData(collection) {
             // Svee document id as docId field
             db.collection("dateFilter").doc(doc.id).set({
                 docId: doc.id
-            }, {merge: true})
+            }, { merge: true })
             date = doc.data().date;
             var docId = doc.data().docId;
             console.log(docId)
@@ -26,8 +26,8 @@ function readDateFilterData(collection) {
         })
 
         var targetId = 0;
-        document.getElementById("dateFilter").addEventListener("click", function(e) {
-            
+        document.getElementById("dateFilter").addEventListener("click", function (e) {
+
             targetId = e.target.id;
             console.log(targetId);
             db.collection("dateFilter").doc(targetId).get().then(doc => {
@@ -37,7 +37,7 @@ function readDateFilterData(collection) {
                 readGameGroupData(buttonDate);
 
             })
-            
+
         })
     })
 }
@@ -101,7 +101,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
             allSport.forEach(doc => {
                 db.collection(sportId).doc(doc.id).set({
                     id: doc.id
-                }, {merge: true})
+                }, { merge: true })
                 gameDetails.push(doc.data());
                 console.log(gameDetails);
                 // gameDetails.push(doc.id);
@@ -127,7 +127,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
                 col3.innerHTML = element.endTime;
                 col4.innerHTML = element.location;
                 col5.innerHTML = element.event;
-                col6.innerHTML = '<a class="btn btn-outline-primary" href="#" role="button" id = "'+ gameId +'">Select</a>';
+                col6.innerHTML = '<a class="btn btn-outline-primary" href="#" role="button" id = "' + gameId + '">Select</a>';
 
                 row.appendChild(col1);
                 row.appendChild(col2);
@@ -140,8 +140,8 @@ function readGameDetailsCollections(dateFilter, sportId) {
 
             // Add event listener on all buttons with references of sport collection and game event documents
             var targetId = 0;
-            gameDetailTableBody.addEventListener("click", function(e) {
-                
+            gameDetailTableBody.addEventListener("click", function (e) {
+
                 targetId = e.target.id;
                 console.log(targetId);
                 console.log(e);
@@ -154,7 +154,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
                 } else {
                     deleteGameEventFromSubcollection(targetId);
                 }
-                
+
                 element.classList.toggle("highlight");
 
             })
@@ -166,7 +166,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
 function writeGameEvent(sportId, gameDocumentId) {
 
     // Add sport collection and game event document as reference data type
-    var gameEventData =db.doc("/" + sportId + "/" + gameDocumentId);
+    var gameEventData = db.doc("/" + sportId + "/" + gameDocumentId);
     console.log(gameEventData);
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -175,10 +175,10 @@ function writeGameEvent(sportId, gameDocumentId) {
             console.log(user.uid);
 
             const data = currentUser.get().schedule;
-            if(data == null) {
+            if (data == null) {
                 const addSchedule = currentUser.update({
                     schedule: fieldValue.arrayUnion(gameEventData)
-                }, {merge: true})
+                }, { merge: true })
             }
 
         }
@@ -190,30 +190,30 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
 
     // Add sport collection and game event document as reference data type
     firebase.auth().onAuthStateChanged(user => {
-        if (user) { 
+        if (user) {
             var currentUser = db.collection("users").doc(user.uid);
             var scheduleWrite = db.collection(sportId).doc(gameDocumentId);
-            scheduleWrite.get().then(plan => {               
+            scheduleWrite.get().then(plan => {
                 currentUser.collection("savedPlan").add({
-                Event: plan.data().event,
-                Date: plan.data().date,
-                Location: plan.data().location,
-                Start: plan.data().startTime,
-                End: plan.data().endTime,
-                Img: plan.data().img,
-                gameId: gameDocumentId,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    Event: plan.data().event,
+                    Date: plan.data().date,
+                    Location: plan.data().location,
+                    Start: plan.data().startTime,
+                    End: plan.data().endTime,
+                    Img: plan.data().img,
+                    gameId: gameDocumentId,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 })
 
                 // Save document id as field docId
                 currentUser.collection("savedPlan").get()
                     .then(allSport => {
                         allSport.forEach(doc => {
-                        currentUser.collection("savedPlan").doc(doc.id).set({
-                            docId: doc.id
-                        }, {merge: true})
-                    })    
-                })
+                            currentUser.collection("savedPlan").doc(doc.id).set({
+                                docId: doc.id
+                            }, { merge: true })
+                        })
+                    })
             })
 
         }
@@ -234,16 +234,17 @@ function deleteGameEventFromSubcollection(gameDocumentId) {
                         currentUser.collection("savedPlan").doc(docToDelete).delete();
 
                     })
-                }) 
+                })
         }
     })
 }
 
 
 function planConfirm() {
-    if(confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {
+    if (confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {
         window.location.href = "travelPlan.html";
     } else {
         window.location.href = "#";
     }
 }
+
