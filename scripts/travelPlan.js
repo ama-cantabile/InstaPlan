@@ -1,4 +1,4 @@
-function populateSchedule() {
+async function populateSchedule() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
@@ -12,13 +12,49 @@ function populateSchedule() {
                     var userName = userDoc.data().name;
                     var userSchedule = userDoc.data().schedule;
                     var scheduleList = "";
-
+                    console.log(user.uid);
 
                     let planTemplate = document.getElementById("planTemplate");
                     let planGroup = document.getElementById("planGroup");
 
-                   currentUser.collection("savedPlan").orderBy('Date').get()
+                    currentUser.collection("savedPlan").orderBy('Start').get()
                         .then(plan => {
+                            // for (var i = 0; i < plan.size; i++) {
+                            //     var gap = plan.docs[i + 1].data().Start - plan.docs[i].data().End;
+
+                            //     db.collection("fillers").where("Start", "==", "10:00").where("End", "==", "11:00")
+                            //         .get()
+                            //         .then(test => {
+                            //             console.log(test.docs[0].data());
+                            //             currentUser.collection("savedPlan").add({
+                            //                 Event: test.docs[0].data().Details,
+                            //                 Date: "Mar 27",
+                            //                 Location: test.docs[0].data().Location,
+                            //                 Start: test.docs[0].data().Start,
+                            //                 End: test.docs[0].data().End,
+                            //                 Img: test.docs[0].data().Image,
+                            //             })
+                            //         });
+                            // }
+                            // console.log(plan.docs[0].data());
+                            // console.log(plan.size);
+                            // var gap = plan.docs[1].data().Start - plan.docs[0].data().End;
+                            // console.log(gap);
+
+                            // db.collection("fillers").where("Start", "==", "10:00").where("End", "==", "11:00")
+                            //     .get()
+                            //     .then(test => {
+                            //         console.log(test.docs[0].data());
+                            //         currentUser.collection("savedPlan").add({
+                            //             Event: test.docs[0].data().Details,
+                            //             Date: "Mar 27",
+                            //             Location: test.docs[0].data().Location,
+                            //             Start: test.docs[0].data().Start,
+                            //             End: test.docs[0].data().End,
+                            //             Img: test.docs[0].data().Image,
+                            //         })
+                            //     });
+
                             plan.forEach(doc => {
                                 var event = doc.data().Event;
                                 var date = doc.data().Date;
@@ -26,7 +62,6 @@ function populateSchedule() {
                                 var end = doc.data().End;
                                 var location = doc.data().Location;
                                 var img = doc.data().Img;
-
 
                                 let planCard = planTemplate.content.cloneNode(true);
                                 planCard.querySelector('#event').innerHTML = event;
@@ -40,41 +75,51 @@ function populateSchedule() {
 
                         })
 
-
-                    console.log(userSchedule);
-                    userSchedule.sort(function (a, b) {
-                        //console.log(a.startTime);
-                        return parseInt(a.startTime) - parseInt(b.startTime);
-                    })
-
-
-                    for (var i = 0; i < userSchedule.length; i++) {
-                        userSchedule[i].get()
-                            .then(scheduleDoc => {
-                                // let testData = scheduleDoc.data().startTime.split(":")
-                                // console.log(testData[0]);
-                                scheduleList += '<ul class="list-group-item"><div class="d-flex w-100 justify-content-between" ><div class="d-flex flex-column bd-highlight mb-3"><h5 class="mb-1">'
-                                    + scheduleDoc.data().event + '</h5><br /><h6 class="mb-4">Time: ' + scheduleDoc.data().startTime + "-" + scheduleDoc.data().endTime + '</h6><p class="mb-1">Location: ' + scheduleDoc.data().location
-                                    + '</p></div><small>3 days ago</small><img src="./images/Vancouver.jpg" style="width: 20%; height:150px;"></div></ul >';
-
-                                document.getElementById("schedule-list-container").innerHTML = scheduleList;
-                            })
-
-
-                        //if the data fields are not empty, then write them in to the form.
-                        if (userName != null) {
-                            //document.getElementById("nameInput").value = userName;
-                        }
-                    }
-
-
-                })
-        } else {
-            // No user is signed in.
-            console.log("No user is signed in");
+                });
         }
-    });
+
+    })
+}
+
+function addFiller() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid);
+            currentUser.collection("savedPlan")
+                .orderBy('Start')
+                .get()
+                .then(plan => {
+                    console.log(plan.docs[0].data());
+                    for (var i = 0; i < plan.size; i++) {
+                        var gap = plan.docs[i + 1].data().Start - plan.docs[i].data().End;
+                        console.log(gap);
+
+                        db.collection("fillers").where("Start", "==", "10:00").where("End", "==", "11:00").where("gap", "===", gap)
+                        
+                            .get()
+                            .then(test => {
+                                console.log(test.docs[0].data());
+                                currentUser.collection("savedPlan").add({
+                                    Event: test.docs[0].data().Details,
+                                    Date: "Mar 27",
+                                    Location: test.docs[0].data().Location,
+                                    Start: test.docs[0].data().Start,
+                                    End: test.docs[0].data().End,
+                                    Img: test.docs[0].data().Image,
+                                })
+                            });
+                    }
+                })
+        }
+    })
+
 }
 
 //call the function to run it 
-populateSchedule();
+function callFunction(){
+    setTimeout(function(){
+        populateSchedule()}, 3000);
+}
+callFunction();
+addFiller();
+//populateSchedule();
