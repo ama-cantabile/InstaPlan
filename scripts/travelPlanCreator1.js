@@ -1,4 +1,5 @@
-
+// This function implements filter-by-date to the game event table. The date slection
+// is populated into a dropdown menu button from the filterDate collection. 
 function readDateFilterData(collection) {
 
     // Addd a dropdown menu to select date filter for the Olympics game events
