@@ -195,12 +195,12 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
             var scheduleWrite = db.collection(sportId).doc(gameDocumentId);
             scheduleWrite.get().then(plan => {
                 currentUser.collection("savedPlan").add({
-                    Event: plan.data().event,
-                    Date: plan.data().date,
-                    Location: plan.data().location,
-                    Start: plan.data().startTime,
-                    End: plan.data().endTime,
-                    Img: plan.data().img,
+                    event: plan.data().event,
+                    date: plan.data().date,
+                    location: plan.data().location,
+                    start: plan.data().startTime,
+                    end: plan.data().endTime,
+                    img: plan.data().img,
                     gameId: gameDocumentId,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 })
