@@ -21,8 +21,10 @@ var uiConfig = {
                     });
             } else {
                 return true;
-            }
-            return false;
+            } 
+                return false;
+            
+
         },
         uiShown: function () {
             // The widget is rendered.
@@ -50,3 +52,4 @@ var uiConfig = {
 
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
+
