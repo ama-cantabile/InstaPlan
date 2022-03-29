@@ -95,7 +95,7 @@ function addFiller() {
                         console.log(gap);
 
                         db.collection("fillers").where("Start", "==", "10:00").where("End", "==", "11:00").where("gap", "===", gap)
-                        
+
                             .get()
                             .then(test => {
                                 console.log(test.docs[0].data());
@@ -115,10 +115,41 @@ function addFiller() {
 
 }
 
+function deletePlan() {
+    if (confirm("Are you sure you want to delete the plan? Click 'Ok' to delete.")) {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                var currentUser = db.collection("users").doc(user.uid);
+                currentUser.collection("savedPlan").get()
+                .then(plan => {
+                    plan.forEach(doc => {
+                        var docToDelete = doc.id;
+                        currentUser.collection("savedPlan").doc(docToDelete).delete();
+                    }) 
+                        document.getElementById("planGroup").remove();
+                        document.getElementById("planMessage").innerHTML = "The Plan Has Been Deleted!";
+                        document.getElementById("planButton").innerHTML = "Create Another Plan";
+                        document.getElementById("planButton").setAttribute("href", "travelPlanCreator1.html");
+                        document.getElementById("planButton").setAttribute("onclick", "");
+                        console.log("all are deleted");
+                })
+                
+                
+            } else {
+                windows.location.assign("login.html");
+            } 
+            }
+
+        )} else {
+            window.location.href = "#";
+        }
+}
+
 //call the function to run it 
-function callFunction(){
-    setTimeout(function(){
-        populateSchedule()}, 3000);
+function callFunction() {
+    setTimeout(function () {
+        populateSchedule()
+    }, 3000);
 }
 callFunction();
 addFiller();
