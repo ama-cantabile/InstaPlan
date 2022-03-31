@@ -35,6 +35,7 @@ function readDateFilterData(collection) {
                 document.getElementById("dropdownMenuLink").innerHTML = buttonDate;
 
                 readGameGroupData(buttonDate);
+                setFilterDate(buttonDate);
 
             })
 
@@ -42,6 +43,12 @@ function readDateFilterData(collection) {
     })
 }
 readDateFilterData();
+
+
+// Store the selected filter date in local storage for later use of filler insertion
+function setFilterDate(id) {
+    localStorage.setItem ('filterDate', id);
+  }
 
 
 function readGameGroupData(buttonDate) {

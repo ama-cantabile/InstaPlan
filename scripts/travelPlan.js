@@ -194,11 +194,16 @@ function filterFillerForSportEvent() {
     })
 }
 
+
 //-----------------------------------------------------------------------------
 // This function adds the filtered filler events of the day to the savedPlan
 // subcollection of the logged-in user as new generated documents.
 //-----------------------------------------------------------------------------
 function addFillerToSavedPlan(fillerList) {
+
+    // Get slected filter data from the local storage and use as the filler date
+    let fillerDate = localStorage.getItem("filterDate");
+
     console.log(fillerList);
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -207,6 +212,7 @@ function addFillerToSavedPlan(fillerList) {
             for (var i = 0; i < fillerList.length; i++) {
                 currentUser.collection("savedPlan").add({
                     event: fillerList[i].Details,
+                    date: fillerDate,
                     location: fillerList[i].Location,
                     address: fillerList[i].Address,
                     start: fillerList[i].Start,
