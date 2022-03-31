@@ -1,10 +1,57 @@
-const sportIdList = [];
+// This function implements filter-by-date to the game event table. The date slection
+// is populated into a dropdown menu button from the filterDate collection. 
+function readDateFilterData(collection) {
 
-function readGameGroupData(collection) {
+    // Addd a dropdown menu to select date filter for the Olympics game events
+    let dateFilterContainer = document.getElementById("dateFilter");
+    var date = "";
+    // Define a default game event date for initial event display
+    var buttonDate = "Mar 08";
+
+    db.collection("dateFilter").orderBy("date").get().then(allDate => {
+        let dateFilterHtml = "";
+        allDate.forEach(doc => {
+
+            // Svee document id as docId field
+            db.collection("dateFilter").doc(doc.id).set({
+                docId: doc.id
+            }, { merge: true })
+            date = doc.data().date;
+            var docId = doc.data().docId;
+            console.log(docId)
+
+            dateFilterHtml += `<li><a id=` + docId + ` class="dropdown-item" href="#">` + date + `</a></li>`
+            dateFilterContainer.innerHTML = dateFilterHtml;
+
+        })
+
+        var targetId = 0;
+        document.getElementById("dateFilter").addEventListener("click", function (e) {
+
+            targetId = e.target.id;
+            console.log(targetId);
+            db.collection("dateFilter").doc(targetId).get().then(doc => {
+                buttonDate = doc.data().date;
+                document.getElementById("dropdownMenuLink").innerHTML = buttonDate;
+
+                readGameGroupData(buttonDate);
+
+            })
+
+        })
+    })
+}
+readDateFilterData();
+
+
+function readGameGroupData(buttonDate) {
+
+    // Create table container to listen to call to add game event table body
     let gameTemplate = document.getElementById("gameTemplate");
     let gameGroup = document.getElementById("gameGroup");
+    const sportIdList = [];
 
-    db.collection(collection).get()
+    db.collection("sportList").where('date', 'array-contains', buttonDate).get()
         .then(allDateGames => {
             let sportListHtml = "";
             allDateGames.forEach(doc => {
@@ -35,27 +82,26 @@ function readGameGroupData(collection) {
                                     </div>
                                 </div> `
 
-                // let gameCollapse = gameTemplate.content.cloneNode(true);
                 gameTemplate.innerHTML = sportListHtml;
             })
 
             for (i = 0; i < sportIdList.length; i++) {
-                readGameDetailsCollections(sportIdList[i]);
+                readGameDetailsCollections(buttonDate, sportIdList[i]);
             }
+
         })
 }
-readGameGroupData("sportList");
 
 // Read game detail collection and store document data in a string.
-function readGameDetailsCollections(sportId) {
-    db.collection(sportId).get()
+function readGameDetailsCollections(dateFilter, sportId) {
+    db.collection(sportId).where('date', '==', dateFilter).get()
         .then(allSport => {
 
             var gameDetails = [];
             allSport.forEach(doc => {
                 db.collection(sportId).doc(doc.id).set({
                     id: doc.id
-                }, {merge: true})
+                }, { merge: true })
                 gameDetails.push(doc.data());
                 console.log(gameDetails);
                 // gameDetails.push(doc.id);
@@ -81,13 +127,7 @@ function readGameDetailsCollections(sportId) {
                 col3.innerHTML = element.endTime;
                 col4.innerHTML = element.location;
                 col5.innerHTML = element.event;
-                col6.innerHTML = '<a class="btn btn-primary" href="#" role="button" id = "'+ sportId +'">Select</a>';
-                const selectButton = document.getElementById(sportId)
-                if(selectButton) {
-                    selectButton.addEventListener("click", () => {
-                        writeGameEvent(sportId, gameId);
-                    })
-                }
+                col6.innerHTML = '<a class="btn btn-outline-primary" href="#" role="button" id = "' + gameId + '">Select</a>';
 
                 row.appendChild(col1);
                 row.appendChild(col2);
@@ -97,25 +137,83 @@ function readGameDetailsCollections(sportId) {
                 row.appendChild(col6);
                 gameDetailTableBody.appendChild(row);
             })
+
+            // Add event listener on all buttons with references of sport collection and game event documents
+            var targetId = 0;
+            gameDetailTableBody.addEventListener("click", function (e) {
+
+                targetId = e.target.id;
+                console.log(targetId);
+                console.log(e);
+
+                var element = document.getElementById(targetId);
+
+                if (!element.classList.contains("highlight")) {
+                    writeGameEventToSubcollection(sportId, targetId);
+
+                } else {
+                    deleteGameEventFromSubcollection(targetId);
+                }
+
+                element.classList.toggle("highlight");
+
+            })
         })
 }
 
 
-// Save slected game events of the day to users collection.
+// Write sport collection and selected game event documents to the schedule field of the logged-in user document
 function writeGameEvent(sportId, gameDocumentId) {
-    var gameEventData ="/" + sportId + "/" + gameDocumentId;
+
+    // Add sport collection and game event document as reference data type
+    var gameEventData = db.doc("/" + sportId + "/" + gameDocumentId);
     console.log(gameEventData);
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             var currentUser = db.collection("users").doc(user.uid);
             var userId = user.uid;
             console.log(user.uid);
-            currentUser.get()
-                .then(userDoc => {
-                    db.collection("users").doc(userId).set({
-                        schedule: gameEventData
 
-                }, {merge: true})
+            const data = currentUser.get().schedule;
+            if (data == null) {
+                const addSchedule = currentUser.update({
+                    schedule: fieldValue.arrayUnion(gameEventData)
+                }, { merge: true })
+            }
+
+        }
+    })
+}
+
+
+function writeGameEventToSubcollection(sportId, gameDocumentId) {
+
+    // Add sport collection and game event document as reference data type
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid);
+            var scheduleWrite = db.collection(sportId).doc(gameDocumentId);
+            scheduleWrite.get().then(plan => {
+                currentUser.collection("savedPlan").add({
+                    event: plan.data().event,
+                    date: plan.data().date,
+                    location: plan.data().location,
+                    start: plan.data().startTime,
+                    end: plan.data().endTime,
+                    img: plan.data().img,
+                    gameId: gameDocumentId,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                })
+
+                // Save document id as field docId
+                currentUser.collection("savedPlan").get()
+                    .then(allSport => {
+                        allSport.forEach(doc => {
+                            currentUser.collection("savedPlan").doc(doc.id).set({
+                                docId: doc.id
+                            }, { merge: true })
+                        })
+                    })
             })
 
         }
@@ -123,41 +221,30 @@ function writeGameEvent(sportId, gameDocumentId) {
 }
 
 
+function deleteGameEventFromSubcollection(gameDocumentId) {
 
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            var currentUser = db.collection("users").doc(user.uid);
 
-function populateCardsDynamically() {
-    let fillerTemplate = document.getElementById("fillerTemplate");
-    let fillerGroup = document.getElementById("fillerGroup");
+            currentUser.collection("savedPlan").where('gameId', '==', gameDocumentId).get()
+                .then(allSport => {
+                    allSport.forEach(doc => {
+                        var docToDelete = doc.data().docId;
+                        currentUser.collection("savedPlan").doc(docToDelete).delete();
 
-    db.collection("fillers").get()
-        .then(allFillers => {
-            allFillers.forEach(doc => {
-                var fillerDetail = doc.data().Details;
-                var fillerStart = doc.data().Start;
-                var fillerEnd = doc.data().End;
-                var fillerLocation = doc.data().Location;
-                var fillerAddress = doc.data().Address;
-                var fillerImage = doc.data().Image;
-                let fillerCard = fillerTemplate.content.cloneNode(true);
-                fillerCard.querySelector('#details').innerHTML = fillerDetail;
-                fillerCard.querySelector('#start').innerHTML = fillerStart;
-                fillerCard.querySelector('#end').innerHTML = fillerEnd;
-                fillerCard.querySelector('#location').innerHTML = fillerLocation;
-                fillerCard.querySelector('#address').innerHTML = fillerAddress;
-                fillerCard.querySelector('#img').src = `./images/${fillerImage}.jpg`;
-                fillerGroup.appendChild(fillerCard);
-            })
-
-        })
+                    })
+                })
+        }
+    })
 }
-populateCardsDynamically();
-
 
 
 function planConfirm() {
-    if(confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {
+    if (confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {
         window.location.href = "travelPlan.html";
     } else {
         window.location.href = "#";
     }
 }
+
