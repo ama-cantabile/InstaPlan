@@ -1,3 +1,18 @@
+@media screen and (max-width:700px) {
+    #footer {
+        display: flex;
+        flex-direction: column;
+    }
 
+    #save {
+        width: 100%;
+    }
 
+    #profile-form-container {
+        margin-bottom: 35%;
+    }
 
+    #gameGroup{
+        text-align: center;
+    }
+}

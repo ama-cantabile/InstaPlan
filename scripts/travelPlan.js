@@ -4,21 +4,46 @@ function populateSchedule() {
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentUser = db.collection("users").orderBy("name", "desc");//.doc(user.uid);
             //get the document for current user.
-            currentUser.get()
+            //currentUser
+            db.collection("users").doc(user.uid)
+                //.orderBy("schedule").collection("womensFreeskiBigAir").orderBy("startTime")
+                .get()
                 .then(userDoc => {
-                    //get the data fields of the user
+                    if (userDoc.exists) {
+                        console.log("exists");
+                        console.log(userDoc);
+                    }
+                    //userDoc.orderBy("schedule");
+                    // var i = 0;
+                    // userDoc.forEach(doc => {
+                    //     console.log(doc.data());
+                    // })
+
+
+                    //get the data fields of the user-
                     var userName = userDoc.data().name;
                     var userSchedule = userDoc.data().schedule;
                     var scheduleList = "";
 
-                    console.log(userSchedule);
-                    userSchedule.sort(function (a, b){
-                        //console.log(a.startTime);
-                        return parseInt(a.startTime) - parseInt(b.startTime);
-                    })
-                    
+                    arrayData = [];
+
+                    userSchedule[0].get().then(test => {
+                        console.log(test.data());
+                    });
+
+                    // userSchedule.get().then(testData=>{
+                    //     console.log(testData.data());
+                    // })
+
+                    console.log(arrayData);
+
+                    // userSchedule.sort(function (a, b){
+                    //     //console.log(a.startTime);
+                    //     return parseInt(a.startTime) - parseInt(b.startTime);
+                    // })
+
 
                     for (var i = 0; i < userSchedule.length; i++) {
                         userSchedule[i].get()
