@@ -10,16 +10,60 @@ async function populateSchedule() {
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentUser = db.collection("users").orderBy("name", "desc");//.doc(user.uid);
             //get the document for current user.
-            currentUser.get()
+            //currentUser
+            db.collection("users").doc(user.uid)
+                //.orderBy("schedule").collection("womensFreeskiBigAir").orderBy("startTime")
+                .get()
                 .then(userDoc => {
-                    //get the data fields of the user
+                    if (userDoc.exists) {
+                        console.log("exists");
+                        console.log(userDoc);
+                    }
+                    //userDoc.orderBy("schedule");
+                    // var i = 0;
+                    // userDoc.forEach(doc => {
+                    //     console.log(doc.data());
+                    // })
+
+
+                    //get the data fields of the user-
                     var userName = userDoc.data().name;
                     var userSchedule = userDoc.data().schedule;
                     var scheduleList = "";
                     console.log(user.uid);
 
+<<<<<<< HEAD
+                    arrayData = [];
+
+                    userSchedule[0].get().then(test => {
+                        console.log(test.data());
+                    });
+
+                    // userSchedule.get().then(testData=>{
+                    //     console.log(testData.data());
+                    // })
+
+                    console.log(arrayData);
+
+                    // userSchedule.sort(function (a, b){
+                    //     //console.log(a.startTime);
+                    //     return parseInt(a.startTime) - parseInt(b.startTime);
+                    // })
+
+
+                    for (var i = 0; i < userSchedule.length; i++) {
+                        userSchedule[i].get()
+                            .then(scheduleDoc => {
+                                // let testData = scheduleDoc.data().startTime.split(":")
+                                // console.log(testData[0]);
+                                scheduleList += '<ul class="list-group-item"><div class="d-flex w-100 justify-content-between" ><div class="d-flex flex-column bd-highlight mb-3"><h5 class="mb-1">'
+                                    + scheduleDoc.data().event + '</h5><br /><h6 class="mb-4">Time: ' + scheduleDoc.data().startTime + "-" + scheduleDoc.data().endTime + '</h6><p class="mb-1">Location: ' + scheduleDoc.data().location
+                                    + '</p></div><small>3 days ago</small><img src="./images/Vancouver.jpg" style="width: 20%; height:150px;"></div></ul >';
+
+                                document.getElementById("schedule-list-container").innerHTML = scheduleList;
+=======
                     let planTemplate = document.getElementById("planTemplate");
                     let planGroup = document.getElementById("planGroup");
 
@@ -77,6 +121,7 @@ async function populateSchedule() {
                                 planCard.querySelector('#location').innerHTML = location;
                                 planCard.querySelector('#img').src = `./images/${img}.jpg`;
                                 planGroup.appendChild(planCard);
+>>>>>>> 708f49e5f7cc90571619934b106cdc2539925fa0
                             })
 
                         })
@@ -241,3 +286,34 @@ callFunction();
 // populateSchedule();
 // addFiller2();
 filterFillerForSportEvent();
+
+function deletePlan() {
+    if (confirm("Are you sure you want to delete the plan? Click 'Ok' to delete.")) {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                var currentUser = db.collection("users").doc(user.uid);
+                currentUser.collection("savedPlan").get()
+                    .then(plan => {
+                        plan.forEach(doc => {
+                            var docToDelete = doc.id;
+                            currentUser.collection("savedPlan").doc(docToDelete).delete();
+                        })
+                        document.getElementById("planGroup").remove();
+                        document.getElementById("planMessage").innerHTML = "The Plan Has Been Deleted!";
+                        document.getElementById("planButton").innerHTML = "Create Another Plan";
+                        document.getElementById("planButton").setAttribute("href", "travelPlanCreator1.html");
+                        document.getElementById("planButton").setAttribute("onclick", "");
+                        console.log("all are deleted");
+                    })
+
+
+            } else {
+                windows.location.assign("login.html");
+            }
+        }
+
+        )
+    } else {
+        window.location.href = "#";
+    }
+}

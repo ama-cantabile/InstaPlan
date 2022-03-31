@@ -67,7 +67,7 @@ function readGameGroupData(buttonDate) {
                 sportIdList.push(sportId);
 
                 sportListHtml += `<p>
-                                    <a id="gameTitle" class="btn btn-primary" data-bs-toggle="collapse" href="#` + sportId + `" role="button"
+                                    <a id="gameTitle" class="btn btn-primary" data-bs-toggle="collapse"  style="width: 200px;" href="#` + sportId + `" role="button"
                                         aria-expanded="false" aria-controls="collapseExample"> 
                                     ` + title + `</a>
                                  </p>

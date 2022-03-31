@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "fillers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Start",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "End",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
