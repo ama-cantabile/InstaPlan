@@ -1,3 +1,124 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #F0F8FF;
+}
+
+.bg-info {
+    background-color: #031A6B !important;
+}
+
+.btn-success {
+    background-color: #05B2DC !important;
+    border-color: #05B2DC !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#logout {
+    transition: transform .3s;
+}
+
+#logout:hover {
+    transform: scale(1.1);
+}
+
+#logout:active {
+    transform: scale(0.9);
+}
+
+#planButton {
+    transition: transform .2s;
+}
+
+#planButton:hover {
+    transform: scale(1.1);
+}
+
+#planButton:active {
+    transform: scale(0.8);
+}
+
+#save {
+    background-color: #05B2DC;
+    color:white;
+    transition: transform .2s;
+}
+
+#save:hover {
+    background-color: #05B2DC;
+    color:white;
+    transform: scale(1.1);
+}
+
+#save:active {
+    background-color: #05B2DC;
+    color:white;
+    transform: scale(0.8);
+}
+
+.btn-secondary {
+    background-color: #031A6B !important;
+}
+
+.btn-outline-primary {
+    color: #031A6B;
+    border-color: #031A6B;
+}
+
+.btn-outline-primary:hover {
+    background-color: #031A6B;
+    color: white;
+    border: #05B2DC;
+}
+
+.btn-primary {
+    background-color: #05B2DC !important;
+    border-color: #05B2DC !important;
+}
+
+.btn-primary:hover {
+    background-color: #031A6B !important;
+    border-color: #031A6B !important;
+}
+
+#finishButton {
+    background-color: #05B2DC;
+    color:white;
+    transition: transform .2s;
+}
+
+#finishButton:hover {
+    background-color: #05B2DC;
+    color:white;
+    transform: scale(1.1);
+}
+
+#finishButton:active {
+    background-color: #05B2DC;
+    color:white;
+    transform: scale(0.8);
+}
+
+.cardTitle {
+    
+}
+
+.btn-outline-info {
+    border-color:#05B2DC !important;
+    color: #05B2DC;
+}
+
+.btn-outline-info:hover {
+    border-color:#05B2DC !important;
+    color: white;
+}
+
 @media screen and (max-width:700px) {
     #footer {
         display: flex;
