@@ -133,7 +133,12 @@ body {
         margin-bottom: 35%;
     }
 
-    #gameGroup{
+    #gameGroup {
         text-align: center;
+    }
+
+    #logo {
+        width: 75%;
+        height: auto;
     }
 }
