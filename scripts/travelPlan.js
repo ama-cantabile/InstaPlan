@@ -36,8 +36,16 @@ async function populateSchedule() {
                                 let planCard = planTemplate.content.cloneNode(true);
                                 planCard.querySelector('#event').innerHTML = event;
                                 planCard.querySelector('#date').innerHTML = date;
-                                planCard.querySelector('#start').innerHTML = start;
-                                planCard.querySelector('#end').innerHTML = end;
+                                if (start % 1 != 0) {
+                                    planCard.querySelector('#start').innerHTML = start - 0.5 + ":30";
+                                } else {
+                                    planCard.querySelector('#start').innerHTML = start + ":00";
+                                }
+                                if (end % 1 != 0) {
+                                    planCard.querySelector('#end').innerHTML = end - 0.5 + ":30";
+                                } else {
+                                    planCard.querySelector('#end').innerHTML = end + ":00";
+                                }
                                 planCard.querySelector('#location').innerHTML = location;
                                 planCard.querySelector('#img').src = `./images/${img}.jpg`;
                                 planGroup.appendChild(planCard);
@@ -49,40 +57,6 @@ async function populateSchedule() {
         }
 
     })
-}
-
-function addFiller() {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            var currentUser = db.collection("users").doc(user.uid);
-            currentUser.collection("savedPlan")
-                .orderBy('Start')
-                .get()
-                .then(plan => {
-                    console.log(plan.docs[0].data());
-                    for (var i = 0; i < plan.size; i++) {
-                        // var gap = plan.docs[i + 1].data().Start - plan.docs[i].data().End;
-                        // console.log(gap);
-
-                        db.collection("fillers").where("Start", "==", "10:00").where("End", "==", "11:00")
-
-                            .get()
-                            .then(test => {
-                                console.log(test.docs[0].data());
-                                currentUser.collection("savedPlan").add({
-                                    Event: test.docs[0].data().Details,
-                                    Date: "Mar 27",
-                                    Location: test.docs[0].data().Location,
-                                    Start: test.docs[0].data().Start,
-                                    End: test.docs[0].data().End,
-                                    Img: test.docs[0].data().Image,
-                                })
-                            });
-                    }
-                })
-        }
-    })
-
 }
 
 //-----------------------------------------------------------------------------

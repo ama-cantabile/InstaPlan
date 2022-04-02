@@ -1,202 +1,50 @@
 [
     {
         "id": "1",
-        "name": "Ogdan",
+        "name": "Beaty Biodiversity Museum",
         "address": "35281 Sycamore Drive",
         "phone": "500-397-3905",
-        "information": "feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare",
-        "image": "./images/grouseMtn.jpg"
+        "information": "Curious by nature? Fall in love with the diversity of life as you discover over 500 exhibits, and stare through the jaws of the largest creature ever to live on Earth—the blue whale.",
+        "image": "./images/Beaty-Biodiversy-Museum.jpg"
     },
     {
         "id": "2",
-        "name": "Brice",
+        "name": "VanDusen Botanical Garden",
         "address": "5143 Coolidge Terrace",
         "phone": "908-486-7284",
-        "information": "quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et",
-        "image": "./images/grouseMtn.jpg"
+        "information": "Explore VanDusen Botanical Garden, an inspiring 55 acre outdoor oasis with over 7,500 plant species and varieties. Spot and photograph local wildlife, enjoy the hedge maze with the kids and relax in a serene setting located in the heart of Vancouver. Bring a picnic or dine on the patios of Shaughnessy Restaurant or The Café. Don’t forget to visit the award-winning visitor centre and browse the gift shop.",
+        "image": "./images/vandusen-botanical-garden.jpg"
     },
     {
         "id": "3",
-        "name": "Elsie",
+        "name": "Burnaby Village Museum",
         "address": "4682 Hudson Pass",
         "phone": "306-248-5672",
-        "information": "congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue",
-        "image": "./images/grouseMtn.jpg"
+        "information": "Stroll through the 1920’s village and visit your favourite historical exhibits. Check out exhibits such as the Burnaby Lake General Store and learn about popular store purchases in the 1920s, visit the Jesse Love Farmhouse to experience a historic family home and find out what a blacksmith does during daily demonstrations at Wagner’s Blacksmith Shop.",
+        "image": "./images/burnaby_museum_storefronts.jpg"
     },
     {
         "id": "4",
-        "name": "Fowler",
+        "name": "Stanley Park Horse-Drawn Tours",
         "address": "14 Fulton Street",
         "phone": "503-835-2934",
-        "information": "amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere",
-        "image": "./images/grouseMtn.jpg"
+        "information": "Step aboard one of our old-fashioned horse-drawn vehicles and meander in comfort through the natural beauty of Stanley Park, Vancouver’s #1 attraction.",
+        "image": "./images/home-Stanley-Park-Horse-Drawn-Tours.jpg"
     },
     {
         "id": "5",
-        "name": "Cyrillus",
+        "name": "Dr. Sun Yat-Sen Classical Chinese Garden",
         "address": "2836 4th Drive",
         "phone": "976-209-1612",
-        "information": "commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor",
-        "image": "./images/grouseMtn.jpg"
+        "information": "Located in the heart of Chinatown, this home garden offers serenity, history and great chi.  Modeled after private gardens in the city of Suzhou, China, the Garden embodies the Taoist philosophy of yin and yang, where every element-light, texture, vegetation - is balanced and symbolic",
+        "image": "./images/home-Dr.-Sun-Yat-Sen.jpg"
     },
     {
         "id": "6",
-        "name": "Micky",
+        "name": "Grouse Mountain",
         "address": "3785 Lawn Plaza",
         "phone": "740-404-0133",
-        "information": "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "7",
-        "name": "Cliff",
-        "address": "960 Caliangt Junction",
-        "phone": "265-349-2739",
-        "information": "vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "8",
-        "name": "Natalee",
-        "address": "75 Morning Drive",
-        "phone": "290-536-5402",
-        "information": "nullam orci pede venenatis non sodales sed tincidunt eu felis",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "9",
-        "name": "Marika",
-        "address": "0 Dexter Alley",
-        "phone": "651-470-0557",
-        "information": "varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "10",
-        "name": "Stanford",
-        "address": "270 Crescent Oaks Drive",
-        "phone": "509-916-3834",
-        "information": "morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "11",
-        "name": "Hyacinthe",
-        "address": "3640 Monica Circle",
-        "phone": "960-203-2101",
-        "information": "libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "12",
-        "name": "Thayne",
-        "address": "00 Scoville Point",
-        "phone": "754-320-9293",
-        "information": "proin at turpis a pede posuere nonummy integer non velit donec diam neque",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "13",
-        "name": "Clarine",
-        "address": "21607 Sloan Hill",
-        "phone": "954-576-2341",
-        "information": "a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "14",
-        "name": "Ilario",
-        "address": "27595 Donald Road",
-        "phone": "779-288-8183",
-        "information": "faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "15",
-        "name": "Jase",
-        "address": "4 Hovde Terrace",
-        "phone": "683-447-2760",
-        "information": "sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "16",
-        "name": "Gillan",
-        "address": "321 Buhler Circle",
-        "phone": "638-649-2913",
-        "information": "amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "17",
-        "name": "Lethia",
-        "address": "04 Cardinal Lane",
-        "phone": "297-832-9306",
-        "information": "augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "18",
-        "name": "Pall",
-        "address": "8 Oak Valley Place",
-        "phone": "577-553-4815",
-        "information": "dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "19",
-        "name": "Jacobo",
-        "address": "40 Anthes Hill",
-        "phone": "145-834-8256",
-        "information": "fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "20",
-        "name": "Abbe",
-        "address": "1469 Butterfield Hill",
-        "phone": "578-313-1884",
-        "information": "nec dui luctus rutrum nulla tellus in sagittis dui vel",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "21",
-        "name": "Maxie",
-        "address": "1846 Old Shore Alley",
-        "phone": "717-341-4823",
-        "information": "congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "22",
-        "name": "Marjy",
-        "address": "494 International Road",
-        "phone": "647-704-2569",
-        "information": "sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "23",
-        "name": "Consuela",
-        "address": "124 Commercial Place",
-        "phone": "480-280-8853",
-        "information": "blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "24",
-        "name": "Nonna",
-        "address": "5 Cody Center",
-        "phone": "914-758-3073",
-        "information": "eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla",
-        "image": "./images/grouseMtn.jpg"
-    },
-    {
-        "id": "25",
-        "name": "Christan",
-        "address": "7 Commercial Street",
-        "phone": "833-243-8029",
-        "information": "aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci",
+        "information": "This fall, enjoy the fresh mountain air and discover the beauty and outdoor experiences Grouse Mountain offers from walks amongst the trees and taking in the views, to delicious dining options in the Chalet and more.",
         "image": "./images/grouseMtn.jpg"
     }
 ]

@@ -56,9 +56,9 @@ function populateAttractionList() {
         .then((querySnapshot) => {
             let attractionDataHTML = "";
             querySnapshot.forEach((doc) => {
-                attractionDataHTML += '<a href="attractionDetail.html" class="list-group-item list-group-item-action" aria-current="true" onclick = "setAttractionData(' + doc.data().id + ')" ><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'
-                    + doc.data().name + '</h5><img src= "' + doc.data().image + '" style="width: 40%; height:150px;"></div><p class="mb-1">'
-                    + doc.data().address + '</p><small>' + doc.data().phone + '</small></a>'
+                attractionDataHTML += '<a href="attractionDetail.html" class="list-group-item list-group-item-action" aria-current="true" onclick = "setAttractionData(' + doc.data().id + ')" ><div class="d-flex w-100 justify-content-between"><p id="attraction-name"class="mb-1">'
+                    + doc.data().name + '</p><img src= "' + doc.data().image + '" style="width: 40%; height:150px;"></div><p class="mb-1" id="attraction-address"><span class="text-bold">Address: </span><span>'
+                    + doc.data().address + '</span></p><p id="attraction-phone"><span class="text-bold">Contact: </span><span>' + doc.data().phone + '</span></p></a>'
             });
 
             console.log(querySnapshot[0]);
