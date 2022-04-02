@@ -56,9 +56,9 @@ function displayRestaurantLists() {
         .then((querySnapshot) => {
             let restaurantDataHTML = "";
             querySnapshot.forEach((doc) => {
-                restaurantDataHTML += '<a href="restaurantDetail.html" class="list-group-item list-group-item-action" aria-current="true" onclick = "setRestaurantData(' + doc.data().id + ')"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">'
-                    + doc.data().name + '</h5><img src= "' + doc.data().image + '" style="width: 40%; height:150px;"></div><p class="mb-1">'
-                    + doc.data().address + '</p><small>' + doc.data().phone + '</small></a>'
+                restaurantDataHTML += '<a href="restaurantDetail.html" class="list-group-item list-group-item-action" aria-current="true" onclick = "setRestaurantData(' + doc.data().id + ')"><div class="d-flex w-100 justify-content-between"><p id="restaurant-name" class="mb-1">'
+                    + doc.data().name + '</p><img src= "' + doc.data().image + '" style="width: 40%; height:150px;"></div><p id="attraction-address" class="mb-1"><span class="text-bold">Address: </span><span>'
+                    + doc.data().address + '</span></p><small id="restaurant-phone"><span class="text-bold">Contact: </span><span>' + doc.data().phone + '</span></small></a>'
             });
 
             console.log(querySnapshot[0]);

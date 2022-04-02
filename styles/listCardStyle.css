@@ -1,0 +1,65 @@
+#attraction-name {
+    font-size: 1.4em;
+}
+
+#attraction-address {
+    font-size: 1.3em;
+}
+
+#attraction-phone {
+    font-size: 1.3em;
+}
+
+#restaurant-name {
+    font-size: 1.4em;
+}
+
+#restaurant-address {
+    font-size: 1.3em;
+}
+
+#restaurant-phone {
+    font-size: 1.3em;
+}
+
+#sport-list-name {
+    font-size: 1.4em;
+}
+
+#sport-list-address {
+    font-size: 1.3em;
+}
+
+#sport-list-subInfo {
+    font-size: 1.3em;
+}
+
+#event{
+    font-size: 1.4em;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+.location-container{
+    font-size: 1.1em;
+}
+
+.address-container{
+    font-size: 1.1em;
+}
+
+.date-container{
+    margin-bottom: 0;
+    font-size: 1.1em;
+}
+
+.start-container{
+    margin-bottom: 0;
+    font-size: 1.1em;
+}
+
+.end-container{
+    margin-bottom: 0;
+    font-size: 1.1em;
+}

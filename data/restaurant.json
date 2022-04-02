@@ -1,202 +1,42 @@
 [
     {
         "id": "1",
-        "name": "Bradtke Inc",
+        "name": "Au Comptoir",
         "address": "47 Prairie Rose Circle",
         "phone": "306-887-4585",
-        "information": "consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo",
-        "image": "./images/restaurant.jpg"
+        "information": "Take a trip to an excellent Parisian bistro by way of the city’s beachside Kitsilano neighborhood, where up-and-comer chef Dan McGee and team are whipping up French standards with B.C.’s finest produce. The stunning custom-made bar comes from France, and even the serving staff are mostly French, although with the happy addition of Canadian manners. With buttery croissants in the morning, gooey croque-monsieur at lunch, and juicy entrecôte-frites with a mouthwatering crisp char at dinner, anytime is a good time for Au Comptoir.",
+        "image": "./images/au-comptoirjpg.jpg"
     },
     {
         "id": "2",
-        "name": "Zboncak-Altenwerth",
+        "name": "Buckstop",
         "address": "92 Jay Court",
         "phone": "395-497-6914",
-        "information": "cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat",
-        "image": "./images/restaurant.jpg"
+        "information": "It’s late and you have a craving for heaping plates of barbecue and strong whisky cocktails. There’s only one place to go: Buckstop, a tiny, genial bar (in a city known for its frosty reception)  in the lively West End neighborhood. Burger Monday creations (often featuring pork patties, tempura-fried toppings like cheese curds, and copious cheeses and sauces) are switched up weekly, with a limited quantity available starting at 4:30 p.m. Among your choices of barbecue treats, the deep-fried pickles and hush puppies with honey butter are nonnegotiable orders.",
+        "image": "./images/buckstop.jpg"
     },
     {
         "id": "3",
-        "name": "Pagac, Abernathy and Hackett",
+        "name": "Golden Paramount Seafood Restaurant",
         "address": "37745 Lakeland Point",
         "phone": "497-630-6227",
-        "information": "id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet",
-        "image": "./images/restaurant.jpg"
+        "information": "Take a 20-minute trip on the Skytrain from downtown to the neighboring city of Richmond, which Eater’s former roving critic, Bill Addison, called “one of the cultural marvels of North America” for having some of the finest Asian food in the world. At this award-winning favorite, the dim sum is handmade by chef-owner May Chau, who focuses on Hong Kong classics: steamed pork and crab dumplings, pan-fried pork buns, and deep-fried wontons — all must-orders. ",
+        "image": "./images/goldenParamountSeafoodRestaurant.jpg"
     },
     {
         "id": "4",
-        "name": "Murray-Koepp",
+        "name": "Marutama Ra-men Canada / Westend",
         "address": "67445 Forest Run Way",
         "phone": "428-360-2556",
-        "information": "urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue",
-        "image": "./images/restaurant.jpg"
+        "information": "Don’t worry: The queues for this West End ramen favorite move fast, and it’s always worth the wait — especially if you’re a noodle fan. Each day this small ramen shop makes 500 4.4-ounce balls of noodles (you can watch the machine from the dining area), which rest for 24 hours before being cooked and slurped up. Hailing from Japan, Marutama favors a silky rich chicken broth over the heavier pork-based tonkotsu. Prepare to be enchanted — and don’t miss out on the egg. It’s consistently the best in the city.",
+        "image": "./images/marutama-ra-men.jpg"
     },
     {
         "id": "5",
-        "name": "Wehner Group",
+        "name": "Granville Island Public Market",
         "address": "955 Macpherson Alley",
         "phone": "385-775-0678",
-        "information": "morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "6",
-        "name": "Fay-Pouros",
-        "address": "4241 Vermont Street",
-        "phone": "580-840-0697",
-        "information": "interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "7",
-        "name": "Mertz-Harvey",
-        "address": "7940 Union Point",
-        "phone": "565-320-7283",
-        "information": "nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "8",
-        "name": "Cartwright-Heller",
-        "address": "760 Anderson Pass",
-        "phone": "936-410-8672",
-        "information": "faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "9",
-        "name": "Schmitt Inc",
-        "address": "11102 Superior Avenue",
-        "phone": "173-907-5299",
-        "information": "dui vel nisl duis ac nibh fusce lacus purus aliquet",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "10",
-        "name": "Smitham Group",
-        "address": "5228 Porter Park",
-        "phone": "816-790-3370",
-        "information": "mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "11",
-        "name": "Haley, Rogahn and Marquardt",
-        "address": "3542 Dawn Trail",
-        "phone": "975-378-0429",
-        "information": "suspendisse potenti nullam porttitor lacus at turpis donec posuere metus",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "12",
-        "name": "Boyer, Witting and Turcotte",
-        "address": "39389 Mockingbird Park",
-        "phone": "117-201-3815",
-        "information": "consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "13",
-        "name": "Kutch, Legros and Schroeder",
-        "address": "6129 Knutson Court",
-        "phone": "508-666-4790",
-        "information": "leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "14",
-        "name": "Christiansen-Cruickshank",
-        "address": "36018 Declaration Junction",
-        "phone": "538-430-3476",
-        "information": "arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "15",
-        "name": "Bosco, Shanahan and Schoen",
-        "address": "3 Talmadge Junction",
-        "phone": "713-290-8291",
-        "information": "quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "16",
-        "name": "Witting, Witting and Metz",
-        "address": "8715 Goodland Center",
-        "phone": "398-105-7320",
-        "information": "donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "17",
-        "name": "Ferry, Klein and Berge",
-        "address": "165 Boyd Way",
-        "phone": "869-995-4239",
-        "information": "convallis nunc proin at turpis a pede posuere nonummy integer non velit donec",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "18",
-        "name": "Stoltenberg, Hessel and Bins",
-        "address": "6 Mendota Crossing",
-        "phone": "310-654-8709",
-        "information": "lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "19",
-        "name": "Rath and Sons",
-        "address": "70966 Anniversary Circle",
-        "phone": "268-105-9371",
-        "information": "quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "20",
-        "name": "Herzog Group",
-        "address": "2 Reindahl Park",
-        "phone": "322-674-9536",
-        "information": "ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "21",
-        "name": "Wintheiser, Torphy and Lueilwitz",
-        "address": "26009 Ridgeway Court",
-        "phone": "904-685-7971",
-        "information": "morbi porttitor lorem id ligula suspendisse ornare consequat lectus in",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "22",
-        "name": "Rolfson Group",
-        "address": "0 Park Meadow Parkway",
-        "phone": "623-321-1940",
-        "information": "primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "23",
-        "name": "Schuster LLC",
-        "address": "81696 Norway Maple Way",
-        "phone": "540-801-3411",
-        "information": "purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "24",
-        "name": "Ullrich, Kuphal and Kuhlman",
-        "address": "60791 Manley Point",
-        "phone": "494-272-4769",
-        "information": "augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis",
-        "image": "./images/restaurant.jpg"
-    },
-    {
-        "id": "25",
-        "name": "Buckridge, Abbott and Russel",
-        "address": "3 Clyde Gallagher Street",
-        "phone": "808-345-4977",
-        "information": "curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis",
-        "image": "./images/restaurant.jpg"
+        "information": "Sure the aisles are packed with wide-eyed Instagrammers at this popular tourist destination, but there are some jewels to be found here to assemble a superb picnic for watching the boats and paddle boarders on False Creek. Take your pick from delights such as pickled headcheese, succulent mortadella, and punchy salami at the Oyama Sausage Co, then head to Terra Bread to pick up some focaccia or baguettes before stocking up on local Salt Spring Island cheeses at Benton Brothers and fresh doughnuts at Lee’s.",
+        "image": "./images/granvile-island.jpg"
     }
 ]
