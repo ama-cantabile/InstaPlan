@@ -21,13 +21,16 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/listCardStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- our own navbar goes here -->
     <div id="navbar-container"></div>
 
-    <h1 style="text-align: center; margin: 5%;" id="planMessage">Here is Your Plan!</h1><br />
+    <h1 style="text-align: center; margin: 5%;" id="planMessage"><b>Here is Your Plan!</b></h1><br />
     <div id="planGroup" class="list-group p-3 mb-2 bg-light text-dark">
 
         <template id="planTemplate">
@@ -37,11 +40,15 @@
                         <div class="d-flex flex-column bd-highlight mb-3">
                             <h5 id="event" class="mb-1"></h5>
                             <br />
-                            <small class="location-container"><span class="text-bold">Location: </span><span id="location"></span></small>
+                            <small class="location-container"><span class="text-bold">Location: </span><span
+                                    id="location"></span></small>
                             <br />
-                            <p class="date-container"><span class="text-bold">Date: </span><span id="date" class="mb-1"></span></p>
-                            <p class="start-container"><span class="text-bold">Start time: </span><span id="start" class="mb-1"></span></p>
-                            <p class="end-container"><span class="text-bold">End time: </span><span id="end" class="mb-1"></span></p>
+                            <p class="date-container"><span class="text-bold">Date: </span><span id="date"
+                                    class="mb-1"></span></p>
+                            <p class="start-container"><span class="text-bold">Start time: </span><span id="start"
+                                    class="mb-1"></span></p>
+                            <p class="end-container"><span class="text-bold">End time: </span><span id="end"
+                                    class="mb-1"></span></p>
                         </div>
                         <img id="img" style="width: 40%; height:150px;">
 
@@ -52,7 +59,8 @@
     </div>
 
     <div class="d-flex w-100 justify-content-center px-3 pt-5">
-        <a type="button" class="btn btn-success btn-lg px-5" id="planButton" onclick="deletePlan()">Delete Travel Plan</a><br />
+        <a type="button" class="btn btn-success btn-lg px-5" id="planButton" onclick="deletePlan()">Delete Travel
+            Plan</a><br />
     </div><br /><br /><br /><br /><br /><br />
 
     <!-- our own footer goes here-->

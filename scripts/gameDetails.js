@@ -21,7 +21,7 @@ db.collection("sportList").where("id", "==", sportId)
       var gameTitle = thisSport.title;
       var gameImage = thisSport.image;
       console.log(gameImage);
-      document.getElementById("gameTitle").innerHTML = gameTitle;
+      document.getElementById("gameTitle").innerHTML = "<b>" + gameTitle + "</b>";
       document.getElementById("gameImage").src = "./images/" + gameImage + ".jpg";
 
     } else {

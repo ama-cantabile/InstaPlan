@@ -8,7 +8,7 @@ function readRestaurant() {
             restaurants = restaurantData.docs;
             var thisRestaurant = restaurants[0].data();
 
-            document.getElementById("header-title").innerHTML = thisRestaurant.name;
+            document.getElementById("header-title").innerHTML = "<b>" + thisRestaurant.name + "</b>";
             document.getElementById("header-text").innerHTML = thisRestaurant.information;
             document.getElementById("phone").innerHTML = thisRestaurant.phone;
             document.getElementById("address").innerHTML = thisRestaurant.address;
