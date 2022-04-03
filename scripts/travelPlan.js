@@ -176,11 +176,11 @@ function deletePlan() {
                             currentUser.collection("savedPlan").doc(docToDelete).delete();
                         })
                         document.getElementById("planGroup").remove();
-                        document.getElementById("planMessage").innerHTML = "The Plan Has Been Deleted!";
+                        document.getElementById("planMessage").innerHTML = "<b>The Plan Has Been Deleted!</b>";
                         document.getElementById("planButton").innerHTML = "Create Another Plan";
                         document.getElementById("planButton").setAttribute("href", "travelPlanCreator1.html");
                         document.getElementById("planButton").setAttribute("onclick", "");
-                        console.log("all are deleted");
+                        console.log("The plan has been deleted.");
                     })
 
 
