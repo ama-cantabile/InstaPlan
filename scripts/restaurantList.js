@@ -72,6 +72,7 @@ function displayRestaurantLists() {
 
 displayRestaurantLists();
 
+// saves a user selected ID to the local storage.
 function setRestaurantData(id) {
     localStorage.setItem('restaurantID', id);
 }

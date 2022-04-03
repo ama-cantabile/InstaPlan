@@ -75,21 +75,3 @@ populateAttractionList();
 function setAttractionData(id) {
     localStorage.setItem('attractionID', id);
 }
-
-// function readAttraction() {
-
-//     db.collection("attractions").get().then(snap => {
-//         size = snap.size;
-//         console.log(size);
-//     });
-
-//     db.collection("attractions").doc("hFyoMNQixdq2xaa3kKCt").onSnapshot(attractionData => {
-//         console.log(attractionData.data());
-//         document.getElementById("attractionName").innerHTML = attractionData.data().name;
-//         document.getElementById("attractionAddress").innerHTML = attractionData.data().address;
-//         document.getElementById("attractionContact").innerHTML = attractionData.data().phone;
-//         document.getElementById("attractionImage").src = attractionData.data().imgae;
-
-//     });
-// }
-// readAttraction();
