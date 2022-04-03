@@ -1,8 +1,8 @@
-/**
- * @author Jin Rong Jian
- * 
- */
 
+//----------------------------------------------------------------------------------------------
+// This function is called when the sportList.html page loads. It reads the sportList collection
+// and display the document data as a list of cards. 
+//-----------------------------------------------------------------------------------------------
  function readSportList(collection) {
   let cardTemplate = document.getElementById("sportListTemplate");
 
@@ -14,7 +14,7 @@
         var sportId = doc.data().id;
         let newcard = cardTemplate.content.cloneNode(true);
 
-        //update title and text and image
+        // Update title and image
         newcard.querySelector('.gameTitle').innerHTML = title;
         newcard.querySelector('a').onclick = () => setSportData(sportId);
         newcard.querySelector('.gameImage').src = "./images/" + image + ".jpg"; 
@@ -25,7 +25,11 @@
 }
 readSportList("sportList");
 
-// Store each sport ID in local storage and use it on game detail page
+
+//----------------------------------------------------------------------------------------------
+// This function is called when the user clicks a card on the page.  It stores the sport id of 
+// the selected sport in the browser's local storage.
+//-----------------------------------------------------------------------------------------------
 function setSportData(id) {
   localStorage.setItem ('sportId', id);
 }

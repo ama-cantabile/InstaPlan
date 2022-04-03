@@ -1,8 +1,9 @@
 
 //-----------------------------------------------------------------------------
-// This function sorts the selected sport events and filtered filler event 
-// in the savedPlan subcollection of the user by start time.  It then populates
-// the doucuments to the travelPlan.html page
+// This function is called when the filterFillerForSportEvent() function finishes
+// filtering the filler events for the selected sports events. It sorts the selected 
+// sport events and filtered filler events in the savedPlan subcollection of the user 
+// by start time.  It then populates the doucuments to the travelPlan.html page.
 //-----------------------------------------------------------------------------
 async function populateSchedule() {
     firebase.auth().onAuthStateChanged(user => {
@@ -69,7 +70,12 @@ async function populateSchedule() {
 function filterFillerForSportEvent() {
 
     var savedSportEvents = [];
-    var fillerSortedByStart = [];
+    var fillerBeforeFirstEvent = [];
+    var fillerBetweenEvents = [];
+    var fillerAfterLastEvent = []
+    var eventStart = 0;
+    var eventEnd = 0;
+    var firstEventStart = 0;
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -93,28 +99,43 @@ function filterFillerForSportEvent() {
                             eventStart = 0;
                         }
 
+
+                        if (i == 1) {
+                            firstEventStart = savedSportEvents[i-1].start;
+                            db.collection("fillers").where("End", "<", firstEventStart)
+                            .get()
+                            .then(test => {
+                                console.log(1);
+                                test.forEach(doc => {
+                                    fillerBeforeFirstEvent.push(doc.data());
+                                    console.log(fillerBeforeFirstEvent);
+                                })
+                            })
+                        }
+
                         if (i < savedSportEvents.length) {
                             db.collection("fillers").where("Start", "==", eventEnd + 1).where("End", "<=", eventStart)
                                 .get()
                                 .then(test => {
                                     console.log(1);
                                     test.forEach(doc => {
-                                        fillerSortedByStart.push(doc.data());
-                                        console.log(fillerSortedByStart);
+                                        fillerBetweenEvents.push(doc.data());
+                                        console.log(fillerBetweenEvents);
                                     })
                                 })
 
                         } else if (i == savedSportEvents.length) {
-                            var testFiller = []
                             db.collection("fillers").where("Start", ">", eventEnd)
                                 .get()
                                 .then(test => {
                                     console.log(1);
                                     test.forEach(doc => {
-                                        testFiller.push(doc.data());
+                                        fillerAfterLastEvent.push(doc.data());
                                     })
-                                    addFillerToSavedPlan(fillerSortedByStart);
-                                    addFillerToSavedPlan(testFiller);
+                                    addFillerToSavedPlan(fillerBeforeFirstEvent);
+                                    addFillerToSavedPlan(fillerBetweenEvents);
+                                    addFillerToSavedPlan(fillerAfterLastEvent);
+                                    populateSchedule()
                                 })
                         }
                     }
@@ -122,6 +143,9 @@ function filterFillerForSportEvent() {
         }
     })
 }
+
+// Call this function when the /travelPlan.html page loads
+filterFillerForSportEvent();
 
 //-----------------------------------------------------------------------------
 // This function adds the filtered filler events of the day to the savedPlan
@@ -161,9 +185,10 @@ function callFunction() {
     }, 3000);
 }
 
-callFunction();
-filterFillerForSportEvent();
-
+//-----------------------------------------------------------------------------
+// This function is called when users click the "Delete Travel Plan" button. It
+// deletes the savedPlan subcollection of the logged-in user.
+//-----------------------------------------------------------------------------
 function deletePlan() {
     if (confirm("Are you sure you want to delete the plan? Click 'Ok' to delete.")) {
         firebase.auth().onAuthStateChanged(user => {
