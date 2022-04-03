@@ -72,6 +72,7 @@ function populateAttractionList() {
 
 populateAttractionList();
 
+// Saves the attraction ID to LocalStorage.
 function setAttractionData(id) {
     localStorage.setItem('attractionID', id);
 }

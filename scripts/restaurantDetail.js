@@ -14,6 +14,7 @@ function readRestaurant() {
             document.getElementById("phone").innerHTML = thisRestaurant.phone;
             document.getElementById("address").innerHTML = thisRestaurant.address;
             document.getElementById("header-image").src = thisRestaurant.image;
+            document.getElementById("gallery-image").src = thisRestaurant.image;
 
         });
 }

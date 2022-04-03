@@ -1,14 +1,15 @@
+// Reads the user's name from Firebase and displays it on the main page.
 function addUserName() {
     firebase.auth().onAuthStateChanged(user => {
-        if (user) {                                                                 
+        if (user) {
             console.log(user.uid);
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get()
-                  .then(userDoc => {
-               var userName = userDoc.data().name;
-               console.log(userName);
-               $("#name").text(userName);                         
-            })
+                .then(userDoc => {
+                    var userName = userDoc.data().name;
+                    console.log(userName);
+                    $("#name").text(userName);
+                })
         } else {
         }
     });

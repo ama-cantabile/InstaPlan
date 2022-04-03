@@ -51,8 +51,8 @@ readDateFilterData();
 
 // Store the selected filter date in local storage for later use of filler insertion
 function setFilterDate(id) {
-    localStorage.setItem ('filterDate', id);
-  }
+    localStorage.setItem('filterDate', id);
+}
 
 //------------------------------------------------------------------------------------------
 // This function is called when user selects a filter date from the dropdown button of
@@ -192,29 +192,6 @@ function readGameDetailsCollections(dateFilter, sportId) {
             })
         })
 }
-
-// Write sport collection and selected game event documents to the schedule field of the logged-in user document
-// function writeGameEvent(sportId, gameDocumentId) {
-
-//     // Add sport collection and game event document as reference data type
-//     var gameEventData = db.doc("/" + sportId + "/" + gameDocumentId);
-//     console.log(gameEventData);
-//     firebase.auth().onAuthStateChanged(user => {
-//         if (user) {
-//             var currentUser = db.collection("users").doc(user.uid);
-//             var userId = user.uid;
-//             console.log(user.uid);
-
-//             const data = currentUser.get().schedule;
-//             if (data == null) {
-//                 const addSchedule = currentUser.update({
-//                     schedule: fieldValue.arrayUnion(gameEventData)
-//                 }, { merge: true })
-//             }
-
-//         }
-//     })
-// }
 
 //----------------------------------------------------------------------------------------------
 // This function is called by the readGameDetailsCollections() function when the user clicks the

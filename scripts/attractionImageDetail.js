@@ -1,10 +1,16 @@
 //Displaying detailed attraction image.
 function readAttraction() {
 
-    db.collection("attractions").doc("1cpL9GncYHGhtBIpX8j5").onSnapshot(attractionData => {
-        console.log(attractionData.data());
+    var attractionID = localStorage.getItem("attractionID");
 
-        document.getElementById("main-image").src = attractionData.data().image;
+    db.collection("attractions").where("id", "==", attractionID)
+    .get()
+    .then(attractionData => {
+        attractions = attractionData.docs;
+        var thisAttraction = attractions[0].data();
+
+        document.getElementById("text-title").innerHTML = "<b>" + thisAttraction.name + " - Image</b>";
+        document.getElementById("main-image").src = thisAttraction.image;
 
     });
 }

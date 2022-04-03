@@ -101,16 +101,16 @@ function filterFillerForSportEvent() {
 
 
                         if (i == 1) {
-                            firstEventStart = savedSportEvents[i-1].start;
+                            firstEventStart = savedSportEvents[i - 1].start;
                             db.collection("fillers").where("End", "<", firstEventStart)
-                            .get()
-                            .then(test => {
-                                console.log(1);
-                                test.forEach(doc => {
-                                    fillerBeforeFirstEvent.push(doc.data());
-                                    console.log(fillerBeforeFirstEvent);
+                                .get()
+                                .then(test => {
+                                    console.log(1);
+                                    test.forEach(doc => {
+                                        fillerBeforeFirstEvent.push(doc.data());
+                                        console.log(fillerBeforeFirstEvent);
+                                    })
                                 })
-                            })
                         }
 
                         if (i < savedSportEvents.length) {

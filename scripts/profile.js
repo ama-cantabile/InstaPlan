@@ -32,9 +32,9 @@ insertName();
 
 // Receive the input from the html input fields and update the data to the Firestore
 function saveUserInfo() {
-    userName = document.getElementById('inputName').value;       
-    userAddress = document.getElementById('inputAddress').value;     
-    userCity = document.getElementById('inputCity').value;       
+    userName = document.getElementById('inputName').value;
+    userAddress = document.getElementById('inputAddress').value;
+    userCity = document.getElementById('inputCity').value;
     userProvince = document.getElementById('inputProvince').value;
     userPostalCode = document.getElementById('inputPostalCode').value;
 

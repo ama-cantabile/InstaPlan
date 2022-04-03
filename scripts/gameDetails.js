@@ -60,9 +60,9 @@ function addGameDetailsToTableBody(date, start, end, location, event, calendar) 
   var col6 = document.createElement("td");
 
   col1.innerHTML = date;
-  
+
   // Display number-type time  data in 24-hour format
-  if (start% 1 != 0) {
+  if (start % 1 != 0) {
     col2.innerHTML = start - 0.5 + ":30";
   } else {
     col2.innerHTML = start + ":00";

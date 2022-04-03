@@ -1,3 +1,4 @@
+// Logs the user out from the app.
 function logOut() {
     firebase.auth().signOut().then(() => {
         location.href = "login.html";

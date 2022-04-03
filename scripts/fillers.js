@@ -1,3 +1,4 @@
+// Dynamically populates filler cards with filler data from Firebase.
 function populateCardsDynamically() {
     let fillerTemplate = document.getElementById("fillerTemplate");
     let fillerGroup = document.getElementById("fillerGroup");
