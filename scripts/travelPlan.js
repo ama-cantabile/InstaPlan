@@ -60,6 +60,9 @@ async function populateSchedule() {
     })
 }
 
+// Get slected filter data from the local storage and use as the filler date
+var fillerDate = localStorage.getItem("filterDate");
+
 //-----------------------------------------------------------------------------
 // This function is called when the user clicks on the "Finish" button after 
 // seleting the sport event they are going for the date.  It then filters the
@@ -91,6 +94,7 @@ function filterFillerForSportEvent() {
                     })
                     console.log(savedSportEvents);
 
+                    // Get the end-time of the current sports event and start-time of the next sport event for comparsion.
                     for (var i = 1; i <= savedSportEvents.length; i++) {
                         eventEnd = savedSportEvents[i - 1].end;
                         if (savedSportEvents.length >= i + 1) {
@@ -99,10 +103,10 @@ function filterFillerForSportEvent() {
                             eventStart = 0;
                         }
 
-
+                        // Filters the filler event by the selected date; then filters the available ones before the first sports event.
                         if (i == 1) {
                             firstEventStart = savedSportEvents[i - 1].start;
-                            db.collection("fillers").where("End", "<", firstEventStart)
+                            db.collection("fillers").where('date', 'array-contains', fillerDate).where("End", "<", firstEventStart)
                                 .get()
                                 .then(test => {
                                     console.log(1);
@@ -113,8 +117,9 @@ function filterFillerForSportEvent() {
                                 })
                         }
 
+                        // Filters the filler event by the selected date; then filters the available ones between the sports events.
                         if (i < savedSportEvents.length) {
-                            db.collection("fillers").where("Start", "==", eventEnd + 1).where("End", "<=", eventStart)
+                            db.collection("fillers").where('date', 'array-contains', fillerDate).where("Start", "==", eventEnd + 1).where("End", "<=", eventStart)
                                 .get()
                                 .then(test => {
                                     console.log(1);
@@ -124,14 +129,17 @@ function filterFillerForSportEvent() {
                                     })
                                 })
 
+                        // Filters the filler event by the selected date; then filters the available ones after the last sports event.
                         } else if (i == savedSportEvents.length) {
-                            db.collection("fillers").where("Start", ">", eventEnd)
+                            db.collection("fillers").where('date', 'array-contains', fillerDate).where("Start", ">", eventEnd)
                                 .get()
                                 .then(test => {
                                     console.log(1);
                                     test.forEach(doc => {
                                         fillerAfterLastEvent.push(doc.data());
                                     })
+
+                                    // Add the filler events to the savedPlan subcollection of the logged-in user
                                     addFillerToSavedPlan(fillerBeforeFirstEvent);
                                     addFillerToSavedPlan(fillerBetweenEvents);
                                     addFillerToSavedPlan(fillerAfterLastEvent);
@@ -152,9 +160,6 @@ filterFillerForSportEvent();
 // subcollection of the logged-in user as new generated documents.
 //-----------------------------------------------------------------------------
 function addFillerToSavedPlan(fillerList) {
-
-    // Get slected filter data from the local storage and use as the filler date
-    let fillerDate = localStorage.getItem("filterDate");
 
     console.log(fillerList);
     firebase.auth().onAuthStateChanged(user => {

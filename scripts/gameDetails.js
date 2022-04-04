@@ -30,7 +30,7 @@ db.collection("sportList").where("id", "==", sportId)
 // AddAllGameDetailsToTableBody() function by passing the array as the parameter.
 //-----------------------------------------------------------------------------------------------
 function readGameDetailsData() {
-  db.collection(sportId).get()
+  db.collection(sportId).orderBy("date").get()
     .then(allSport => {
       var gameDetails = [];
       allSport.forEach(doc => {
