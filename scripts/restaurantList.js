@@ -1,6 +1,5 @@
 /**
  * @author Amadeus Min
- * 
  */
 
 // This function fetch a attraction JSON file and save on the Firebase storage if the collection size is 0.
@@ -38,7 +37,7 @@ function writeRestaurantData() {
     test();
 }
 
-// fetch function
+// Fetch function
 function fetchData(url) {
     fetch(url)
     return fetch(url)
@@ -72,7 +71,7 @@ function displayRestaurantLists() {
 
 displayRestaurantLists();
 
-// saves a user selected ID to the local storage.
+// Saves a user selected ID to the local storage.
 function setRestaurantData(id) {
     localStorage.setItem('restaurantID', id);
 }

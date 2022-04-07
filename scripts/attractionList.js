@@ -1,6 +1,5 @@
 /**
  * @author Amadeus Min
- * 
  */
 
 // This function fetch a attraction JSON file and save on the Firebase storage if the collection size is 0.
@@ -38,7 +37,7 @@ function writeAttractionData() {
     test();
 }
 
-// fetch function
+// Fetch function
 function fetchData(url) {
     fetch(url)
     return fetch(url)

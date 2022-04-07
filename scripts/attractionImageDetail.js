@@ -1,4 +1,4 @@
-//Displaying detailed attraction image.
+// Displaying detailed attraction image.
 function readAttraction() {
 
     var attractionID = localStorage.getItem("attractionID");

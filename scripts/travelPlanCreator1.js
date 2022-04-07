@@ -1,4 +1,3 @@
-
 //-----------------------------------------------------------------------------------
 // This function is called when the /travelPlanCreator1.html page loads. filter-by-date 
 // to the game event table. The date slection is populated into a dropdown menu button 
@@ -47,7 +46,6 @@ function readDateFilterData(collection) {
     })
 }
 readDateFilterData();
-
 
 // Store the selected filter date in local storage for later use of filler insertion
 function setFilterDate(id) {

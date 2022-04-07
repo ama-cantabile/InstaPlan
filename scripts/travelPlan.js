@@ -1,4 +1,3 @@
-
 //-----------------------------------------------------------------------------
 // This function is called when the filterFillerForSportEvent() function finishes
 // filtering the filler events for the selected sports events. It sorts the selected 
@@ -129,7 +128,7 @@ function filterFillerForSportEvent() {
                                     })
                                 })
 
-                        // Filters the filler event by the selected date; then filters the available ones after the last sports event.
+                            // Filters the filler event by the selected date; then filters the available ones after the last sports event.
                         } else if (i == savedSportEvents.length) {
                             db.collection("fillers").where('date', 'array-contains', fillerDate).where("Start", ">", eventEnd)
                                 .get()
@@ -212,13 +211,10 @@ function deletePlan() {
                         document.getElementById("planButton").setAttribute("onclick", "");
                         console.log("The plan has been deleted.");
                     })
-
-
             } else {
                 windows.location.assign("login.html");
             }
         }
-
         )
     } else {
         window.location.href = "#";

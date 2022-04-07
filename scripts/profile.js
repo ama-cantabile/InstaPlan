@@ -58,7 +58,7 @@ function saveUserInfo() {
 
 document.getElementById("save").addEventListener("click", confirm);
 
-// Alert a user if the updating is successful.
+// Alert a user whether the updating is successful or not.
 function confirm() {
     alert("Saved!");
 }
