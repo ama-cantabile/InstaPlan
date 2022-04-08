@@ -1,6 +1,6 @@
-/**
- * @author Amadeus Min
- */
+//-----------------------
+// @author Amadeus Min
+//-----------------------
 
 // This function fetch a attraction JSON file and save on the Firebase storage if the collection size is 0.
 function writeAttractionData() {
@@ -46,9 +46,10 @@ function fetchData(url) {
 
 writeAttractionData();
 
-/* This function retreieve the data from firebase and iterates the each attributes of the data. 
- * The each iteration creates own html and pass the html to the attractionList.html page.   
-*/
+//-----------------------------------------------------------------------------------------------------
+// This function retrieves the data from Firebase and iterates through each attribute of the data. 
+// Each iteration creates an html and passes the html to attractionList.html.   
+//-----------------------------------------------------------------------------------------------------
 function populateAttractionList() {
     db.collection("attractions")
         .get()

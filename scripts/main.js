@@ -1,4 +1,4 @@
-// Reads the user's name from Firebase and displays it on the main page.
+// Reads the user's name from Firebase and displays it on the main.html.
 function addUserName() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {

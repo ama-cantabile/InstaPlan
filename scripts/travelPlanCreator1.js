@@ -5,7 +5,7 @@
 //-----------------------------------------------------------------------------------
 function readDateFilterData(collection) {
 
-    // Addd a dropdown menu to select date filter for the Olympics game events
+    // Add a dropdown menu to select date filter for the Olympics game events
     let dateFilterContainer = document.getElementById("dateFilter");
     var date = "";
     // Define a default game event date for initial event display
@@ -15,7 +15,7 @@ function readDateFilterData(collection) {
         let dateFilterHtml = "";
         allDate.forEach(doc => {
 
-            // Svee document id as docId field
+            // Save document id as docId field
             db.collection("dateFilter").doc(doc.id).set({
                 docId: doc.id
             }, { merge: true })
@@ -52,16 +52,16 @@ function setFilterDate(id) {
     localStorage.setItem('filterDate', id);
 }
 
-//------------------------------------------------------------------------------------------
-// This function is called when user selects a filter date from the dropdown button of
-// the sports event dates.  It sorts the sportList collection with the selected date, 
-// inserts a collapse button for displaying information, and creates the headings of the
-// sports event table.  It then calls the  readGameDetailsCollections(buttonDate, sportIdList[i])
-// function by passing the selcted date and each of the sport id as parameters. 
-//-------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+// This function is called when user selects a date from the dropdown button of
+// the sports event dates on travelPlanCreator1.html.  It sorts the sportList collection with the selected date, 
+// inserts a collapsible button for displaying game event information, and creates the headings of the
+// sports event table. It then calls the readGameDetailsCollections(buttonDate, sportIdList[i])
+// function by passing the selected date and each of the sport ids as parameters. 
+//-----------------------------------------------------------------------------------------------------------------
 function readGameGroupData(buttonDate) {
 
-    // Create table container to listen to call to add game event table body
+    // Creates table container to listen to call to add game event table body
     let gameTemplate = document.getElementById("gameTemplate");
     let gameGroup = document.getElementById("gameGroup");
     const sportIdList = [];
@@ -107,12 +107,12 @@ function readGameGroupData(buttonDate) {
         })
 }
 
-//----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 // This function is called by the readGameGroupData() function. It takes the selected filter
-// date and sport id as the input paramters to first find the corresponding collection with
-// the sport id, and then sorts the documents by the filter date.  It then populates the
-// data into the table of the content of the collapse buttons in the travelPlanCreator1.html page.
-//-----------------------------------------------------------------------------------------------
+// date and sport id as the input parameters to first find the corresponding collection with
+// the sport id, and then sorts the documents by the filter date. It then populates the
+// data into the correct table within the collapsible buttons in the travelPlanCreator1.html page.
+//-----------------------------------------------------------------------------------------------------
 function readGameDetailsCollections(dateFilter, sportId) {
     db.collection(sportId).where('date', '==', dateFilter).get()
         .then(allSport => {
@@ -124,11 +124,9 @@ function readGameDetailsCollections(dateFilter, sportId) {
                 }, { merge: true })
                 gameDetails.push(doc.data());
                 console.log(gameDetails);
-                // gameDetails.push(doc.id);
-
             })
 
-            // Define game detail table body container
+            // Defines game detail table body container
             var gameDetailTableBody = document.getElementById("id" + sportId);
             gameDetailTableBody.innerHTML = "";
             gameDetails.forEach(element => {
@@ -144,7 +142,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
 
                 col1.innerHTML = element.date;
 
-                // Display number-type time  data in 24-hour format
+                // Displays number-type time data in 24-hour format
                 if (element.startTime % 1 != 0) {
                     col2.innerHTML = element.startTime - 0.5 + ":30";
                 } else {
@@ -168,7 +166,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
                 gameDetailTableBody.appendChild(row);
             })
 
-            // Add event listener on all buttons with references of sport collection and game event documents
+            // Add event listener to all buttons with references to the sport collection and game event documents.
             var targetId = 0;
             gameDetailTableBody.addEventListener("click", function (e) {
 
@@ -191,11 +189,11 @@ function readGameDetailsCollections(dateFilter, sportId) {
         })
 }
 
-//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
 // This function is called by the readGameDetailsCollections() function when the user clicks the
-// "Select" button of the sport event table.  It copys the sports event data and saves as a new
+// "Select" button of the sport event table.  It copies the sports event data and saves it as a new
 // document in the savedPlan subcollection of the logged-in user.
-//-----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
 function writeGameEventToSubcollection(sportId, gameDocumentId) {
 
     firebase.auth().onAuthStateChanged(user => {
@@ -214,7 +212,7 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 })
 
-                // Save document id as field docId
+                // Saves document id as field docId
                 currentUser.collection("savedPlan").get()
                     .then(allSport => {
                         allSport.forEach(doc => {
@@ -229,11 +227,11 @@ function writeGameEventToSubcollection(sportId, gameDocumentId) {
     })
 }
 
-//----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 // This function is called by the readGameDetailsCollections() function when the user unclicks the
-// "Select" button of the sport event table.  It removes the corresponding document in the 
+// "Select" button of the sport event table. It removes the corresponding document in the 
 // savedPlan subcollection of the logged-in user.
-//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 function deleteGameEventFromSubcollection(gameDocumentId) {
 
     firebase.auth().onAuthStateChanged(user => {
@@ -252,11 +250,11 @@ function deleteGameEventFromSubcollection(gameDocumentId) {
     })
 }
 
-//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
 // This function is called when the user clicks the "Finish" button on the travelPlanCreator1.html
-// page. It prompt the user to confirm the selection of the sports event and then direct the user
+// page. It prompt the user to confirm the selection of the sports events and then directs the user
 // to the travelPlan.html page.
-//-----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
 function planConfirm() {
     if (confirm("Please click 'OK' to create the plan. Otherwise, click 'Cancel' to remain on the page.")) {
         window.location.href = "travelPlan.html";
