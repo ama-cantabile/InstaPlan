@@ -1,7 +1,3 @@
-/**
- * @author Amadeus Min
- */
-
 // This function retrieve current loggged in user and display the user's info on profile.html page
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {

@@ -1,7 +1,3 @@
-/**
- * @author Amadeus Min
- */
-
 // This function fetch a attraction JSON file and save on the Firebase storage if the collection size is 0.
 function writeRestaurantData() {
     const url = './data/restaurant.json';
