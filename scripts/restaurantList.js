@@ -1,9 +1,4 @@
-/**
- * @author Amadeus Min
- * 
- */
-
-// This function fetch a attraction JSON file and save on the Firebase storage if the collection size is 0.
+// This function will fetch the attraction.json and save it on Firebase storage if the collection size is 0.
 function writeRestaurantData() {
     const url = './data/restaurant.json';
     let data = fetchData(url);
@@ -38,7 +33,7 @@ function writeRestaurantData() {
     test();
 }
 
-// fetch function
+// Fetch function
 function fetchData(url) {
     fetch(url)
     return fetch(url)
@@ -47,9 +42,10 @@ function fetchData(url) {
 
 writeRestaurantData();
 
-/* This function retreieve the data from firebase and iterates the each attributes of the data. 
- * The each iteration creates own html and pass the html to the attractionList.html page.   
-*/
+//---------------------------------------------------------------------------------------------------
+// This function retreieve the data from firebase and iterates the each attributes of the data. 
+// The each iteration creates own html and pass the html to the attractionList.html page.   
+//---------------------------------------------------------------------------------------------------
 function displayRestaurantLists() {
     db.collection("restaurants")
         .get()
@@ -72,7 +68,7 @@ function displayRestaurantLists() {
 
 displayRestaurantLists();
 
-// saves a user selected ID to the local storage.
+// Saves a user selected ID to the local storage.
 function setRestaurantData(id) {
     localStorage.setItem('restaurantID', id);
 }

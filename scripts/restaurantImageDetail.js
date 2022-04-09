@@ -1,4 +1,4 @@
-// Display restaurant detailed image
+// Displays the restaurant image in restaurantImageDetail.html.
 function readRestaurant() {
 
     var restaurantID = localStorage.getItem("restaurantID");

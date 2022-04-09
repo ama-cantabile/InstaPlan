@@ -1,4 +1,3 @@
-
 //-----------------------------------------------------------------------------
 // This function is called when the filterFillerForSportEvent() function finishes
 // filtering the filler events for the selected sports events. It sorts the selected 
@@ -15,16 +14,11 @@ async function populateSchedule() {
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
-                    //get the data fields of the user
-                    var userName = userDoc.data().name;
-                    var userSchedule = userDoc.data().schedule;
-                    var scheduleList = "";
-                    console.log(user.uid);
 
                     let planTemplate = document.getElementById("planTemplate");
                     let planGroup = document.getElementById("planGroup");
 
-                    currentUser.collection("savedPlan").orderBy('start').get()
+                    currentUser.collection("savedPlan").orderBy('date').orderBy('start').get()
                         .then(plan => {
                             plan.forEach(doc => {
                                 var event = doc.data().event;
@@ -60,7 +54,7 @@ async function populateSchedule() {
     })
 }
 
-// Get slected filter data from the local storage and use as the filler date
+// Get selected filter data from the local storage and use as the filler date
 var fillerDate = localStorage.getItem("filterDate");
 
 //-----------------------------------------------------------------------------
@@ -129,7 +123,7 @@ function filterFillerForSportEvent() {
                                     })
                                 })
 
-                        // Filters the filler event by the selected date; then filters the available ones after the last sports event.
+                            // Filters the filler event by the selected date; then filters the available ones after the last sports event.
                         } else if (i == savedSportEvents.length) {
                             db.collection("fillers").where('date', 'array-contains', fillerDate).where("Start", ">", eventEnd)
                                 .get()
@@ -212,13 +206,10 @@ function deletePlan() {
                         document.getElementById("planButton").setAttribute("onclick", "");
                         console.log("The plan has been deleted.");
                     })
-
-
             } else {
                 windows.location.assign("login.html");
             }
         }
-
         )
     } else {
         window.location.href = "#";
