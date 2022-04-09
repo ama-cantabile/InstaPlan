@@ -26,7 +26,7 @@ function insertName() {
 }
 insertName();
 
-// Receive the input from the html input fields and update the data to the Firestore
+// Receive the input from the html input fields and update the data to Firestore
 function saveUserInfo() {
     userName = document.getElementById('inputName').value;
     userAddress = document.getElementById('inputAddress').value;
@@ -52,9 +52,10 @@ function saveUserInfo() {
     })
 }
 
+// Runs confirm() when the button with id="save" is clicked.
 document.getElementById("save").addEventListener("click", confirm);
 
-// Alert a user whether the updating is successful or not.
+// Alert the user that their profile information has been saved.
 function confirm() {
     alert("Saved!");
 }

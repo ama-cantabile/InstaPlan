@@ -1,6 +1,6 @@
 var restaurantID = localStorage.getItem("restaurantID");
 
-// Get the restaurant ID from the local storage and if the ID exists in the Firebase, populate the data to the page.
+// Get the restaurant ID from the local storage and if the ID exists in Firebase, populate the data to the page.
 function readRestaurant() {
 
     db.collection("restaurants").where("id", "==", restaurantID)

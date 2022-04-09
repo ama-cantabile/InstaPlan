@@ -14,16 +14,11 @@ async function populateSchedule() {
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
-                    //get the data fields of the user
-                    var userName = userDoc.data().name;
-                    var userSchedule = userDoc.data().schedule;
-                    var scheduleList = "";
-                    console.log(user.uid);
 
                     let planTemplate = document.getElementById("planTemplate");
                     let planGroup = document.getElementById("planGroup");
 
-                    currentUser.collection("savedPlan").orderBy('start').get()
+                    currentUser.collection("savedPlan").orderBy('date').orderBy('start').get()
                         .then(plan => {
                             plan.forEach(doc => {
                                 var event = doc.data().event;
@@ -59,7 +54,7 @@ async function populateSchedule() {
     })
 }
 
-// Get slected filter data from the local storage and use as the filler date
+// Get selected filter data from the local storage and use as the filler date
 var fillerDate = localStorage.getItem("filterDate");
 
 //-----------------------------------------------------------------------------
