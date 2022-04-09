@@ -159,7 +159,7 @@ function readGameDetailsCollections(dateFilter, sportId) {
                 }
                 col4.innerHTML = element.location;
                 col5.innerHTML = element.event;
-                col6.innerHTML = '<a class="btn btn-outline-primary" href="#" role="button" id = "' + gameId + '">Select</a>';
+                col6.innerHTML = '<a class="btn btn-outline-primary" role="button" id = "' + gameId + '">Select</a>';
 
                 row.appendChild(col1);
                 row.appendChild(col2);
